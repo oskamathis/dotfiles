@@ -1,0 +1,17 @@
+[user]
+    email = oskamathis@gmail.com
+    name = OskaMathis
+[core]
+    excludesfile = ~/.gitignore_global
+[ghq]
+    root = ~/develop/ghq
+[merge]
+    tool = vscode
+[mergetool]
+    prompt = false
+    keepBackup = false
+[mergetool "vscode"]
+    # cmd = 'VSCodeのパス' \"$MERGED\"
+    # 例：Macの場合
+    cmd = '/Applications/Visual Studio Code.app/Contents/Resources/app/bin/code' \"$MERGED\"
+    trustExitCode = false
