@@ -265,17 +265,26 @@ function git_current_branch_name() {
 
 ########################################
 # 実行に失敗したコマンドを履歴に残さない
+__record_command() {
+    typeset -g _LASTCMD=${1%%$'\n'}
+    return 1
+}
+zshaddhistory_functions+=(__record_command)
+
 __update_history() {
     local last_status="$?"
 
-    local HISTFILE=~/.zsh_history
-    fc -W
-    if [[ ${last_status} -ne 0 ]]; then
-        ed -s ${HISTFILE} <<EOF >/dev/null
-d
-w
-q
-EOF
+    # hist_ignore_space
+    if [[ ! -n ${_LASTCMD%% *} ]]; then
+        return
+    fi
+
+    # hist_reduce_blanks
+    local cmd_reduce_blanks=$(echo ${_LASTCMD} | tr -s ' ')
+
+    # Record the commands that have succeeded
+    if [[ ${last_status} == 0 ]]; then
+        print -sr -- "${cmd_reduce_blanks}"
     fi
 }
 precmd_functions+=(__update_history)
