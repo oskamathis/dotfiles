@@ -316,7 +316,7 @@ export LESS_TERMCAP_us=$'\E[01;32m'      # Begins underline.
 eval "$(anyenv init -)"
 eval "$(direnv hook zsh)"
 eval "$(fasd --init auto)" && unalias zz
-source $(dirname $(gem which colorls))/tab_complete.sh
+source $(dirname $(/usr/bin/gem which colorls))/tab_complete.sh
 
 ########################################
 # 環境変数
