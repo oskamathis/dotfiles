@@ -144,10 +144,12 @@ abbrev-alias b='brew'
 abbrev-alias bl='brew list'
 abbrev-alias bu='brew upgrade && brew cleanup'
 
-abbrev-alias lc='colorls --sd -1'
-abbrev-alias la='colorls --sd -A1'
-abbrev-alias ll='colorls --sd -Al'
-abbrev-alias lf='colorls --sd -A | fzf'
+abbrev-alias lc='lsd --group-dirs first'
+abbrev-alias la='lsd --group-dirs first -A1'
+abbrev-alias ll='lsd --group-dirs first -l'
+abbrev-alias ll='lsd --group-dirs first -Al'
+abbrev-alias lf='lsd --group-dirs first -A | fzf'
+abbrev-alias llf='lsd --group-dirs first -Al | fzf'
 
 abbrev-alias ls='ls -G -F'
 abbrev-alias rm='rm -i'
@@ -212,8 +214,8 @@ function vl() {
 
 function zz() {
     local dir=$(fasd -Rdl $@ \
-                | fzf --preview "colorls -A --sd --color {}" \
-                      --exit-0 --preview-window=right:30%)
+                | fzf --preview "lsd --color always {}" \
+                      --exit-0 --no-unicode --preview-window=right:30%)
     [ $dir ] && cd $dir
 }
 
@@ -231,7 +233,7 @@ function c() {
 
 function ghq-look() {
     local src=$(ghq list \
-                | fzf --preview "colorls -A --sd --color $(ghq root)/{}" \
+                | fzf --preview "lsd --group-dirs first --color always $(ghq root)/{}" \
                       --exit-0 --preview-window=right:30%)
     if [ -n "$src" ]; then
         BUFFER="cd $(ghq root)/$src"
@@ -290,8 +292,8 @@ __update_history() {
 precmd_functions+=(__update_history)
 
 ########################################
-# cd後に自動でcolorls実行
-function chpwd() { colorls -1 --sd }
+# cd後に自動でlsd実行
+function chpwd() { lsd --group-dirs first -1 }
 
 ########################################
 # zcompile
@@ -325,7 +327,6 @@ export LESS_TERMCAP_us=$'\E[01;32m'      # Begins underline.
 eval "$(anyenv init -)"
 eval "$(direnv hook zsh)"
 eval "$(fasd --init auto)" && unalias zz
-source $(dirname $(/usr/bin/gem which colorls))/tab_complete.sh
 
 ########################################
 # 環境変数

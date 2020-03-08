@@ -26,6 +26,7 @@ brew "lesspipe"
 brew "highlight"
 brew "source-highlight"
 brew "hub"
+brew "lsd"
 
 cask "iterm2"
 cask "visual-studio-code"

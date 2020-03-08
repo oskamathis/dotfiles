@@ -22,9 +22,6 @@ brew bundle
 echo '> install tmux-powerline'
 git clone https://github.com/OskaMathis/tmux-powerline.git ~/.tmux/tmux-powerline
 
-echo '> install colorls'
-sudo gem install colorls
-
 echo '> change login shell'
 sudo sh -c 'echo /usr/local/bin/zsh >> /etc/shells' && chsh -s /usr/local/bin/zsh
 

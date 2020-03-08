@@ -12,4 +12,3 @@
 2. Homebrewをインストール
 3. `brew bundle` でパッケージを一括インストール
 4. ログインシェルを変更
-5. systemのRubyにcolorlsをインストール
