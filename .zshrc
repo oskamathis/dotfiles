@@ -191,8 +191,11 @@ abbrev-alias crc='code ~/.zshrc'
 abbrev-alias ch='code ~/.zsh_history'
 
 abbrev-alias t='tmux'
+abbrev-alias ts='tmux new -s'
 abbrev-alias ta='tmux a'
-abbrev-alias tks='tmux kill-server'
+abbrev-alias tas='tmux a -t'
+abbrev-alias tks='tmux kill-session -t'
+abbrev-alias tksv='tmux kill-server'
 abbrev-alias zt='time ( zsh -i -c exit )'
 
 # sudo の後のコマンドでエイリアスを有効にする
