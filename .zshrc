@@ -142,7 +142,9 @@ abbrev-alias relog='exec $SHELL -l' || alias relog='exec $SHELL -l'
 
 abbrev-alias b='brew'
 abbrev-alias bl='brew list'
-abbrev-alias bu='brew upgrade && brew cleanup'
+abbrev-alias bu='brew upgrade'
+abbrev-alias bc='brew cleanup'
+abbrev-alias buc='brew upgrade && brew cleanup'
 
 abbrev-alias lsd='lsd --group-dirs first -1F'
 abbrev-alias la='lsd -1A'
