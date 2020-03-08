@@ -34,6 +34,9 @@ cask "bettertouchtool"
 cask "alfred"
 cask "docker"
 
+cask "font-hackgen"
+cask "font-hack-nerd-font"
+
 cask "qlcolorcode"
 cask "qlimagesize"
 cask "qlmarkdown"
