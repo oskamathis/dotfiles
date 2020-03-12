@@ -175,7 +175,7 @@ abbrev-alias gpl='git pull'
 abbrev-alias gplr='git pull --rebase origin develop'
 abbrev-alias gr='git rebase'
 abbrev-alias gra='git rebase --abort'
-abbrev-alias grc='git rebase --contiune'
+abbrev-alias grc='git rebase --continue'
 abbrev-alias gb='git branch'
 abbrev-alias -e gbm='git branch -m $(git_current_branch_name)'
 abbrev-alias gm='git merge'
@@ -193,11 +193,14 @@ abbrev-alias crc='code ~/.zshrc'
 abbrev-alias ch='code ~/.zsh_history'
 
 abbrev-alias t='tmux'
+abbrev-alias tls='tmux ls'
+abbrev-alias tlsk='tmux lsk | fzf'
 abbrev-alias ts='tmux new -s'
+abbrev-alias tr='tmux start && tmux run ~/.tmux/plugins/tmux-resurrect/scripts/restore.sh'
 abbrev-alias ta='tmux a'
 abbrev-alias tas='tmux a -t'
-abbrev-alias tks='tmux kill-session -t'
-abbrev-alias tksv='tmux kill-server'
+abbrev-alias tk='tmux kill-session -t'
+abbrev-alias tks='tmux kill-server'
 abbrev-alias zt='time ( zsh -i -c exit )'
 
 # sudo の後のコマンドでエイリアスを有効にする
@@ -219,7 +222,7 @@ function vl() {
 
 function zz() {
     local dir=$(fasd -Rdl $@ \
-                | fzf --preview "lsd --color always {}" \
+                | fzf --preview "lsd -F --group-dirs first --color always {}" \
                       --exit-0 --no-unicode --preview-window=right:30%)
     [ $dir ] && cd $dir
 }
@@ -238,7 +241,7 @@ function c() {
 
 function ghq-look() {
     local src=$(ghq list \
-                | fzf --preview "lsd --group-dirs first --color always $(ghq root)/{}" \
+                | fzf --preview "lsd -F --group-dirs first --color always $(ghq root)/{}" \
                       --exit-0 --preview-window=right:30%)
     if [ -n "$src" ]; then
         BUFFER="cd $(ghq root)/$src"
@@ -265,9 +268,7 @@ function git-checkout-remote() {
 }
 
 function git_current_branch_name() {
-    if [ git status 2>/dev/null ]; then
-        git symbolic-ref --short HEAD
-    fi
+    git symbolic-ref --short HEAD
 }
 
 ########################################
@@ -289,7 +290,7 @@ precmd_functions+=(__update_history)
 
 ########################################
 # cd後に自動でlsd実行
-function chpwd() { lsd --group-dirs first -1 }
+function chpwd() { lsd }
 
 ########################################
 # zcompile
