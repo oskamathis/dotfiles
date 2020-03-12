@@ -201,6 +201,7 @@ abbrev-alias ta='tmux a'
 abbrev-alias tas='tmux a -t'
 abbrev-alias tk='tmux kill-session -t'
 abbrev-alias tks='tmux kill-server'
+
 abbrev-alias zt='time ( zsh -i -c exit )'
 
 # sudo の後のコマンドでエイリアスを有効にする
@@ -229,7 +230,7 @@ function zz() {
 
 function v() {
     local file=$(fasd -Rfl $@ \
-                 | fzf --preview "(highlight -O ansi -l {} || less {}) 2> /dev/null | head -100" \
+                 | fzf --preview "(bat --number --color always {}) 2> /dev/null | head -100" \
                        --exit-0 --height 100% --preview-window=down:50%)
     [ $file ] && vim $file
 }
@@ -333,6 +334,7 @@ export FZF_DEFAULT_OPTS="--ansi --exit-0 --reverse --height 100% --border"
 export LESS='-g -i -M -R -S -W -z-4 -x4'
 export PAGER=less
 export CLICOLOR=1
+export BAT_THEME="OneHalfDark"
 
 ########################################
 # パス

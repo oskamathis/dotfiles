@@ -27,6 +27,7 @@ brew "highlight"
 brew "source-highlight"
 brew "hub"
 brew "lsd"
+brew "bat"
 
 cask "iterm2"
 cask "visual-studio-code"
