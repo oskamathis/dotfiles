@@ -11,10 +11,12 @@
 1. 各種設定ファイルのシンボリックリンクをホームディレクトリ直下に作成
 2. Homebrewをインストール
 3. `brew bundle` でパッケージを一括インストール
-4. ログインシェルを変更
+4. 各種コマンド群のセットアップ
+5. ログインシェルを変更
 
 
 ## 手動設定項目
 ### git
 Hombrewでインストールしたgitのdiff-highlightを使えるようにする
 `sudo ln -s /usr/local/share/git-core/contrib/diff-highlight/diff-highlight /usr/local/bin/diff-highlight`
+
