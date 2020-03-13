@@ -13,7 +13,6 @@ brew "ghq"
 brew "vim"
 brew "fasd"
 brew "fzf"
-
 brew "anyenv"
 brew "direnv"
 brew "reattach-to-user-namespace"
@@ -29,13 +28,6 @@ brew "hub"
 brew "lsd"
 brew "bat"
 
-cask "iterm2"
-cask "visual-studio-code"
-cask "google-chrome"
-cask "bettertouchtool"
-cask "alfred"
-cask "docker"
-
 cask "font-hackgen"
 cask "font-hack-nerd-font"
 
@@ -43,3 +35,21 @@ cask "qlcolorcode"
 cask "qlimagesize"
 cask "qlmarkdown"
 cask "qlstephen"
+
+cask "iterm2"
+cask "docker"
+cask "visual-studio-code"
+
+cask "appcleaner"
+cask "google-chrome"
+cask "google-japanese-ime"
+cask "authy"
+cask "bitwarden"
+cask "station"
+cask "spark"
+
+cask "alfred"
+cask "bettertouchtool"
+cask "karabiner-elements"
+
+mas "Slack", id: 803453959

@@ -146,6 +146,8 @@ abbrev-alias bu='brew upgrade'
 abbrev-alias bc='brew cleanup'
 abbrev-alias buc='brew upgrade && brew cleanup'
 
+abbrev-alias cask='brew cask'
+
 abbrev-alias lsd='lsd --group-dirs first -1F'
 abbrev-alias la='lsd -1A'
 abbrev-alias ll='lsd -l'
