@@ -3,6 +3,8 @@
     name = OskaMathis
 [core]
     excludesfile = ~/.gitignore_global
+[fetch]
+    prune = true
 [pager]
     log = diff-highlight | less
     show = diff-highlight | less
