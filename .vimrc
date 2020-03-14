@@ -1,3 +1,27 @@
+"vim-plug
+if empty(glob('~/.vim/autoload/plug.vim'))
+    silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+        \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
+call plug#begin('~/.vim/plugged')
+Plug 'davidcelis/vim-ariake-dark'
+call plug#end()
+
+"シンタックスハイライト設定
+syntax on
+color Ariake-Dark
+"TrueColor
+set termguicolors
+let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+"背景透過
+highlight Normal ctermbg=NONE guibg=NONE
+highlight NonText ctermbg=NONE guibg=NONE
+highlight LineNr ctermbg=NONE guibg=NONE
+highlight Folded ctermbg=NONE guibg=NONE
+highlight EndOfBuffer ctermbg=NONE guibg=NONE
 "行削除時にブラックホールレジスタに放り込む
 nnoremap d "_d
 vnoremap d "_d
@@ -27,9 +51,6 @@ set noerrorbells
 set laststatus=2
 "カーソル位置を表示
 set ruler
-"シンタックスハイライト
-set term=xterm-256color
-syntax on
 
 "=====================================================
 "文字コードを指定
