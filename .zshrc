@@ -211,7 +211,7 @@ alias sudo='sudo '
 
 # グローバルエイリアス
 abbrev-alias -g L='| less'
-abbrev-alias -g G='| grep'
+abbrev-alias -g G='| rg'
 abbrev-alias -g F='| fzf'
 abbrev-alias -g P='| pbcopy'
 abbrev-alias -g -e B='$(git_current_branch_name)'
