@@ -27,6 +27,7 @@ brew "source-highlight"
 brew "hub"
 brew "lsd"
 brew "bat"
+brew "ripgrep"
 
 cask "font-hackgen"
 cask "font-hack-nerd-font"

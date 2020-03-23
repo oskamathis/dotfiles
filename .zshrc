@@ -328,10 +328,12 @@ eval "$(fasd --init auto)" && unalias zz
 # 環境変数
 export LANG=ja_JP.UTF-8
 export EDITOR=vim
-export FZF_DEFAULT_OPTS="--ansi --exit-0 --reverse --height 100% --border"
 export LESS='-g -i -M -R -S -W -z-4 -x4'
 export PAGER=less
 export CLICOLOR=1
+export FZF_DEFAULT_OPTS="--ansi --exit-0 --reverse --height 100% --border"
+export FZF_DEFAULT_COMMAND="rg --files --hidden --follow --glob '!.git/*'"
+export FZF_FIND_FILE_COMMAND=$FZF_DEFAULT_COMMAND
 export BAT_THEME="OneHalfDark"
 
 ########################################
