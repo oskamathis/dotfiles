@@ -6,17 +6,18 @@ if empty(glob('~/.vim/autoload/plug.vim'))
 endif
 
 call plug#begin('~/.vim/plugged')
-Plug 'davidcelis/vim-ariake-dark'
+Plug 'joshdick/onedark.vim'
 call plug#end()
 
 "シンタックスハイライト設定
 syntax on
-color Ariake-Dark
+colorscheme onedark
 "TrueColor
 set termguicolors
 "背景透過
 highlight Normal ctermbg=NONE guibg=NONE
 highlight NonText ctermbg=NONE guibg=NONE
+highlight SpecialKey ctermbg=NONE guibg=NONE
 highlight LineNr ctermbg=NONE guibg=NONE
 highlight Folded ctermbg=NONE guibg=NONE
 highlight EndOfBuffer ctermbg=NONE guibg=NONE
