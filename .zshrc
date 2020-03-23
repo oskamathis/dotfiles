@@ -247,13 +247,9 @@ function ghq-look() {
                 | fzf --preview "lsd -F --group-dirs first --color always $(ghq root)/{}" \
                       --exit-0 --preview-window=right:30%)
     if [ -n "$src" ]; then
-        BUFFER="cd $(ghq root)/$src"
-        zle accept-line
+        cd $(ghq root)/$src
     fi
-    zle -R -c
 }
-zle -N ghq-look
-bindkey '^]' ghq-look
 
 function git-checkout-local() {
     local branches branch
