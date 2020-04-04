@@ -2,7 +2,12 @@
 
 set -u # 未定義の変数使用時に終了
 
-DOTPATH=$(cd $(dirname $0); pwd)
+DOTPATH=~/dotfiles
+GITHUB_URL=https://github.com/OskaMathis/dotfiles.git
+
+echo '> download dotfiles'
+git clone --recursive "$GITHUB_URL" "$DOTPATH"
+cd $DOTPATH || exit 1
 
 echo '> create symbolic links'
 sh $DOTPATH/deploy.sh
@@ -16,8 +21,11 @@ brew bundle --global
 echo '> install tmux-powerline'
 git clone https://github.com/OskaMathis/tmux-powerline.git ~/.tmux/tmux-powerline
 
-echo  '> install anyenv'
+echo '> initialize anyenv'
 anyenv install --init
+
+echo '> install vim plugins'
+vim -c PlugInstall -c q -c q
 
 echo '> change login shell'
 sudo sh -c 'echo /usr/local/bin/zsh >> /etc/shells' && chsh -s /usr/local/bin/zsh
