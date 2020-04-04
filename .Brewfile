@@ -28,6 +28,8 @@ brew "hub"
 brew "lsd"
 brew "bat"
 brew "ripgrep"
+brew "translate-shell"
+brew "mackup"
 
 cask "font-hackgen"
 cask "font-hack-nerd-font"
@@ -48,9 +50,11 @@ cask "authy"
 cask "bitwarden"
 cask "station"
 cask "spark"
+cask "dropbox"
 
 cask "alfred"
 cask "bettertouchtool"
 cask "karabiner-elements"
+cask "showyedge"
 
 mas "Slack", id: 803453959

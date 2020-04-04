@@ -17,6 +17,10 @@
 
 ## 手動設定項目
 ### git
-Hombrewでインストールしたgitのdiff-highlightを使えるようにする
+Homebrewでインストールしたgitのdiff-highlightを使えるようにする
 `sudo ln -s /usr/local/share/git-core/contrib/diff-highlight/diff-highlight /usr/local/bin/diff-highlight`
+
+### Mackup
+Dropboxアプリを設定してからリストアを実行する
+`mackup restore`
 
