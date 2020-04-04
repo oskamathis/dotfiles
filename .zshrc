@@ -24,6 +24,7 @@ zinit light-mode for \
     junegunn/fzf \
     zsh-users/zsh-syntax-highlighting \
     momo-lab/zsh-abbrev-alias \
+    b4b4r07/enhancd \
 
 zinit ice depth=1; zinit light romkatv/powerlevel10k
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
@@ -148,18 +149,18 @@ abbrev-alias buc='brew upgrade && brew cleanup'
 
 abbrev-alias cask='brew cask'
 
-abbrev-alias lsd='lsd --group-dirs first -1F'
+alias lsd='lsd -F --group-dirs first'
+abbrev-alias ls='lsd -1'
 abbrev-alias la='lsd -1A'
 abbrev-alias ll='lsd -l'
 abbrev-alias lla='lsd -lA'
 abbrev-alias lf='lsd -A | fzf'
 abbrev-alias llf='lsd -Al | fzf'
 
-abbrev-alias ls='ls -GF'
-abbrev-alias rm='rm -i'
-abbrev-alias cp='cp -i'
-abbrev-alias mv='mv -i'
-abbrev-alias mkdir='mkdir -p'
+alias rm='rm -i'
+alias cp='cp -i'
+alias mv='mv -i'
+alias mkdir='mkdir -p'
 
 abbrev-alias gs='git status'
 abbrev-alias gf='git fetch'
@@ -182,6 +183,8 @@ abbrev-alias gb='git branch'
 abbrev-alias -e gbm='git branch -m $(git_current_branch_name)'
 abbrev-alias gm='git merge'
 abbrev-alias gmn='git merge --no-ff --no-commit'
+abbrev-alias gmc='git merge --continue'
+abbrev-alias gma='git merge --abort'
 
 abbrev-alias gl='ghq-look'
 
@@ -214,7 +217,8 @@ abbrev-alias -g L='| less'
 abbrev-alias -g G='| rg'
 abbrev-alias -g F='| fzf'
 abbrev-alias -g P='| pbcopy'
-abbrev-alias -g -e B='$(git_current_branch_name)'
+abbrev-alias -g C='| bat -pp'
+abbrev-alias -g B='| bat'
 
 ########################################
 # 自作関数
@@ -273,23 +277,23 @@ function git_current_branch_name() {
 ########################################
 # 実行に失敗したコマンドを履歴に残さない
 __update_history() {
-  local last_status="$?"
+    local last_status="$?"
 
-  local HISTFILE=~/.zsh_history
-  fc -W
-  if [[ ${last_status} -ne 0 ]]; then
-    ed -s ${HISTFILE} <<EOF >/dev/null
+    local HISTFILE=~/.zsh_history
+    fc -W
+    if [[ ${last_status} -ne 0 ]]; then
+        ed -s ${HISTFILE} <<EOF >/dev/null
 d
 w
 q
 EOF
-  fi
+    fi
 }
 precmd_functions+=(__update_history)
 
 ########################################
-# cd後に自動でlsd実行
-function chpwd() { lsd }
+# cd後に自動でls実行
+function chpwd() { ls }
 
 ########################################
 # zcompile
@@ -322,7 +326,7 @@ export LESS_TERMCAP_us=$'\E[01;32m'      # Begins underline.
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 eval "$(anyenv init -)"
 eval "$(direnv hook zsh)"
-eval "$(fasd --init auto)" && unalias zz
+eval "$(fasd --init auto)" && unalias zz && unalias sd
 
 ########################################
 # 環境変数
@@ -332,14 +336,14 @@ export LESS='-g -i -M -R -S -W -z-4 -x4'
 export PAGER=less
 export CLICOLOR=1
 export FZF_DEFAULT_OPTS="--ansi --exit-0 --reverse --height 100% --border"
-export FZF_DEFAULT_COMMAND="rg --files --hidden --follow --glob '!.git/*'"
+export FZF_DEFAULT_COMMAND="fd --type file --follow --hidden --exclude .git"
 export FZF_FIND_FILE_COMMAND=$FZF_DEFAULT_COMMAND
 export BAT_THEME="OneHalfDark"
 
 ########################################
 # パス
-export PATH="/usr/local/opt/git/bin:$PATH"
 export PATH="/usr/local/sbin:$PATH"
+export PATH="/usr/local/opt/git/bin:$PATH"
 
 # if (which zprof > /dev/null) ;then
 #     zprof
