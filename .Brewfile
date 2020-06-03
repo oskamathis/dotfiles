@@ -1,9 +1,10 @@
-tap "beeftornado/rmtree"
 tap "homebrew/bundle"
 tap "homebrew/cask"
 tap "homebrew/cask-fonts"
 tap "homebrew/core"
 tap "homebrew/services"
+tap "beeftornado/rmtree"
+tap "fabianishere/personal"
 
 brew "zsh"
 brew "tmux"
@@ -33,6 +34,7 @@ brew "bat"
 brew "ripgrep"
 brew "translate-shell"
 brew "mackup"
+brew "pam_reattach"
 
 cask "font-hackgen"
 cask "font-hack-nerd-font"
@@ -52,12 +54,14 @@ cask "google-japanese-ime"
 cask "authy"
 cask "bitwarden"
 cask "station"
-cask "spark"
 cask "dropbox"
 
 cask "alfred"
 cask "bettertouchtool"
 cask "karabiner-elements"
 cask "showyedge"
+cask "fuwari"
+cask "bartender"
 
 mas "Slack", id: 803453959
+mas "Spark", id: 1176895641

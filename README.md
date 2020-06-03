@@ -21,6 +21,12 @@
 Homebrewでインストールしたgitのdiff-highlightを使えるようにする
 `sudo ln -s /usr/local/share/git-core/contrib/diff-highlight/diff-highlight /usr/local/bin/diff-highlight`
 
+### anyenv
+`anyenv install --init`
+
+### vim-plug
+`vim -c PlugInstall -c q -c q`
+
 ### Mackup
 Dropboxアプリを設定してからリストアを実行する
 `mackup restore`
