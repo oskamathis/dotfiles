@@ -344,6 +344,7 @@ export BAT_THEME="OneHalfDark"
 # パス
 export PATH="/usr/local/sbin:$PATH"
 export PATH="/usr/local/opt/git/bin:$PATH"
+export PATH="/usr/local/opt/mysql-client/bin:$PATH"
 
 # if (which zprof > /dev/null) ;then
 #     zprof
