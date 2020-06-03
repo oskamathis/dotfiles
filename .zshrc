@@ -136,6 +136,12 @@ setopt hist_find_no_dups
 # 高機能なワイルドカード展開を使用する
 setopt extended_glob
 
+# 履歴をインクリメンタルに追加する
+setopt inc_append_history
+
+# ディレクトリ補完時に末尾にスラッシュを追加
+setopt auto_param_slash
+
 ########################################
 # エイリアス
 abbrev-alias --init
@@ -161,6 +167,7 @@ alias rm='rm -i'
 alias cp='cp -i'
 alias mv='mv -i'
 alias mkdir='mkdir -p'
+alias man=' man'
 
 abbrev-alias gs='git status'
 abbrev-alias gf='git fetch'
@@ -174,17 +181,25 @@ abbrev-alias gcl='git-checkout-local'
 abbrev-alias gcr='git-checkout-remote'
 abbrev-alias gps='git push'
 abbrev-alias -e gpsu='git push -u origin $(git_current_branch_name)'
+abbrev-alias gps-f='git push --force-with-lease'
 abbrev-alias gpl='git pull'
 abbrev-alias gplr='git pull --rebase origin develop'
+abbrev-alias -e gpl-f='git reset --hard origin/$(git_current_branch_name)'
 abbrev-alias gr='git rebase'
 abbrev-alias gra='git rebase --abort'
 abbrev-alias grc='git rebase --continue'
+abbrev-alias grs='git rebase --skip'
 abbrev-alias gb='git branch'
 abbrev-alias -e gbm='git branch -m $(git_current_branch_name)'
+abbrev-alias gb-d='git branch -D'
 abbrev-alias gm='git merge'
 abbrev-alias gmn='git merge --no-ff --no-commit'
 abbrev-alias gmc='git merge --continue'
 abbrev-alias gma='git merge --abort'
+abbrev-alias gms='git merge --skip'
+
+abbrev-alias guc='git-user-company'
+abbrev-alias gup='git-user-personal'
 
 abbrev-alias gl='ghq-look'
 
@@ -257,7 +272,7 @@ function ghq-look() {
 
 function git-checkout-local() {
     local branches branch
-    branches=$(git branch -vv) &&
+    branches=$(git branch) &&
     branch=$(echo "$branches" | fzf +m) &&
     git checkout $(echo "$branch" | awk '{print $1}' | sed "s/.* //")
 }
