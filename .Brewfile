@@ -34,6 +34,7 @@ brew "bat"
 brew "ripgrep"
 brew "translate-shell"
 brew "mackup"
+brew "awscli"
 brew "pam_reattach"
 
 cask "font-hackgen"
@@ -43,7 +44,7 @@ cask "qlcolorcode"
 cask "qlimagesize"
 cask "qlmarkdown"
 cask "qlstephen"
-
+cask "session-manager-plugin"
 cask "iterm2"
 cask "docker"
 cask "visual-studio-code"
@@ -65,3 +66,4 @@ cask "bartender"
 
 mas "Slack", id: 803453959
 mas "Spark", id: 1176895641
+
