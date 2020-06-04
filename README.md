@@ -7,18 +7,24 @@
 
 
 ## セットアップ手順
-`curl -L raw.github.com/OskaMathis/dotfiles/master/setup.sh | bash` を実行すると下記順序でセットアップされる
+1. `xcode-select --install` (Gitコマンドを使えるようにする)
+2. `curl -L raw.github.com/oskamathis/dotfiles/master/setup.sh | bash`
+
+
+## セットアップ内容
 1. dotfilesリポジトリをホームディレクトリ直下にダウンロード
 2. 各種設定ファイルのシンボリックリンクをホームディレクトリ直下に作成
 3. Homebrewをインストール
 4. `brew bundle` でパッケージを一括インストール
-5. 各種コマンド群のセットアップ
+5. tmux-powerlineを導入
 6. ログインシェルを変更
+7. sudoコマンドの認証にTouchIDを使えるようにする
 
 
 ## 手動設定項目
-### git
-Homebrewでインストールしたgitのdiff-highlightを使えるようにする
+### Git
+HomebrewでインストールしたGitのdiff-highlightを使えるようにする
+
 `sudo ln -s /usr/local/share/git-core/contrib/diff-highlight/diff-highlight /usr/local/bin/diff-highlight`
 
 ### anyenv
@@ -29,5 +35,5 @@ Homebrewでインストールしたgitのdiff-highlightを使えるようにす�
 
 ### Mackup
 Dropboxアプリを設定してからリストアを実行する
-`mackup restore`
 
+`mackup restore`
