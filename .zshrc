@@ -20,6 +20,7 @@ zinit light-mode for \
     zinit-zsh/z-a-patch-dl \
     zsh-users/zsh-autosuggestions \
     zsh-users/zsh-completions \
+    zsh-users/zsh-history-substring-search \
     junegunn/fzf-bin \
     junegunn/fzf \
     zsh-users/zsh-syntax-highlighting \
@@ -36,6 +37,12 @@ colors
 
 # emacs 風キーバインドにする
 bindkey -e
+
+# zsh-history-substring-search
+if zinit loaded zsh-history-substring-search >/dev/null 2>&1; then
+    bindkey '^[[A' history-substring-search-up
+    bindkey '^[[B' history-substring-search-down
+fi
 
 # 履歴の設定
 HISTFILE=~/.zsh_history
@@ -135,9 +142,6 @@ setopt hist_find_no_dups
 
 # 高機能なワイルドカード展開を使用する
 setopt extended_glob
-
-# 履歴をインクリメンタルに追加する
-setopt inc_append_history
 
 # ディレクトリ補完時に末尾にスラッシュを追加
 setopt auto_param_slash
@@ -291,13 +295,15 @@ function git_current_branch_name() {
 
 ########################################
 # 実行に失敗したコマンドを履歴に残さない
-__update_history() {
-    local last_status="$?"
+__record_command() {
+    typeset -g last_command=${1%%$'\n'}
+}
+zshaddhistory_functions+=(__record_command)
 
-    local HISTFILE=~/.zsh_history
-    fc -W
-    if [[ ${last_status} -ne 0 ]]; then
-        ed -s ${HISTFILE} <<EOF >/dev/null
+__update_history() {
+    typeset last_status="$?"
+    if [[ $last_status -ne 0 && -n $last_command ]]; then
+        ed -s $HISTFILE <<EOF >/dev/null
 d
 w
 q
