@@ -149,29 +149,41 @@ setopt auto_param_slash
 ########################################
 # エイリアス
 abbrev-alias --init
-abbrev-alias relog='exec $SHELL -l' || alias relog='exec $SHELL -l'
+abbrev-alias relog=' exec $SHELL -l' || alias relog=' exec $SHELL -l'
 
 abbrev-alias b='brew'
 abbrev-alias bl='brew list'
 abbrev-alias bu='brew upgrade'
 abbrev-alias bc='brew cleanup'
 abbrev-alias buc='brew upgrade && brew cleanup'
-
 abbrev-alias cask='brew cask'
 
-alias lsd='lsd -F --group-dirs first'
+alias lsd=' lsd -F --group-dirs first'
 abbrev-alias ls='lsd -1'
 abbrev-alias la='lsd -1A'
 abbrev-alias ll='lsd -l'
 abbrev-alias lla='lsd -lA'
 abbrev-alias lf='lsd -A | fzf'
 abbrev-alias llf='lsd -Al | fzf'
+abbrev-alias cat='bat -pp'
 
 alias rm='rm -i'
 alias cp='cp -i'
 alias mv='mv -i'
 alias mkdir='mkdir -p'
 alias man=' man'
+alias cd=' __enhancd::cd'
+alias less=' less'
+alias bat=' bat'
+alias vim=' vim'
+alias code=' code'
+alias open=' open'
+alias where=' where'
+alias which=' which'
+alias zz=' zz'
+alias v=' v'
+alias c=' c'
+alias abbrev-alias=' abbrev-alias'
 
 abbrev-alias gs='git status'
 abbrev-alias gf='git fetch'
@@ -227,6 +239,8 @@ abbrev-alias tk='tmux kill-session -t'
 abbrev-alias tks='tmux kill-server'
 
 abbrev-alias zt='time ( zsh -i -c exit )'
+abbrev-alias al='abbrev-alias'
+abbrev-alias alf='abbrev-alias | fzf'
 
 # sudo の後のコマンドでエイリアスを有効にする
 alias sudo='sudo '
