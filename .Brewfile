@@ -36,6 +36,7 @@ brew "translate-shell"
 brew "mackup"
 brew "awscli"
 brew "pam_reattach"
+brew "mycli"
 
 cask "font-hackgen"
 cask "font-hack-nerd-font"
