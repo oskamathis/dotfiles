@@ -1,6 +1,9 @@
 # main view の左端にコミットIDを表示する
 set main-view = id date author:email-user commit-title:graph=yes,refs=yes
 
+# main view の日時表示設定
+set main-view-date = relative-compact
+
 # blame view の行数表示をON、intervalを1に
 set blame-view  = date:default author:email-user id:yes,color line-number:yes,interval=1 text
 
@@ -34,6 +37,10 @@ set diff-highlight = true
 # diff-view で境界が見やすくなるように変更
 color  diff-header       default red
 color  diff-chunk        black   white
+
+########################################
+# vimdiffで確認をする
+bind generic D      !git difftool
 
 ########################################
 # 最上/最下部移動

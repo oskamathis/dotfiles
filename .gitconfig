@@ -4,6 +4,8 @@
 [core]
     excludesfile = ~/.gitignore_global
     quotepath = false
+[log]
+    date = iso
 [fetch]
     prune = true
 [pull]
@@ -14,8 +16,30 @@
     diff = diff-highlight | less
 [ghq]
     root = ~/develop/ghq
+# [diff]
+#     tool = vimdiff
+#     algorithm = histogram
+# [difftool]
+#     prompt = false
+
+[diff]
+    tool = vscode
+    algorithm = histogram
+[difftool]
+    prompt = false
+[difftool "vscode"]
+    cmd = '/Applications/Visual Studio Code.app/Contents/Resources/app/bin/code' --wait --diff \"$LOCAL\" \"$REMOTE\"
+
+# [merge]
+#    tool = vimdiff
+#    conflictStyle = diff3
+# [mergetool]
+#    prompt = false
+#    keepBackup = false
+
 [merge]
     tool = vscode
+    conflictStyle = diff3
 [mergetool]
     prompt = false
     keepBackup = false

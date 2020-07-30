@@ -33,7 +33,16 @@ set ttymouse=sgr
 set iminsert=2
 "OSのクリップボードをレジスタ指定無しで Yank, Put 出来るようにする
 set clipboard=unnamed,unnamedplus
-
+"vimdiffの設定
+set diffopt=internal,filler,algorithm:histogram,indent-heuristic
+highlight DiffAdd    cterm=bold ctermfg=10 ctermbg=22
+highlight DiffDelete cterm=bold ctermfg=10 ctermbg=52
+highlight DiffChange cterm=bold ctermfg=10 ctermbg=17
+highlight DiffText   cterm=bold ctermfg=10 ctermbg=21
+"自動整形時に長いテキストが自動折返しされないように設定
+set formatoptions=q
+set textwidth=0
+au FileType gitcommit setlocal tw=0
 "=====================================================
 "行番号を表示する
 set number
