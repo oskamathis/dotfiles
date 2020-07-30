@@ -21,6 +21,9 @@ brew bundle --global
 echo '> install tmux-powerline'
 git clone https://github.com/OskaMathis/tmux-powerline.git ~/.tmux/tmux-powerline
 
+echo '> setup diff-highlight'
+sudo ln -s /usr/local/share/git-core/contrib/diff-highlight/diff-highlight /usr/local/bin/diff-highlight
+
 echo '> change login shell'
 sudo sh -c 'echo /usr/local/bin/zsh >> /etc/shells' && chsh -s /usr/local/bin/zsh
 

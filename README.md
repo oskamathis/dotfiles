@@ -17,23 +17,47 @@
 3. Homebrewをインストール
 4. `brew bundle` でパッケージを一括インストール
 5. tmux-powerlineを導入
-6. ログインシェルを変更
-7. sudoコマンドの認証にTouchIDを使えるようにする
+6. HomebrewでインストールしたGitのdiff-highlightを使えるようにする
+7. ログインシェルを変更
+8. sudoコマンドの認証にTouchIDを使えるようにする
 
 
 ## 手動設定項目
-### Git
-HomebrewでインストールしたGitのdiff-highlightを使えるようにする
-
-`sudo ln -s /usr/local/share/git-core/contrib/diff-highlight/diff-highlight /usr/local/bin/diff-highlight`
-
 ### anyenv
-`anyenv install --init`
+初期化
+
+```sh
+anyenv install --init
+```
+
+プラグイン
+```sh
+mkdir -p $(anyenv root)/plugins
+git clone https://github.com/znz/anyenv-update.git $(anyenv root)/plugins/anyenv-update
+git clone https://github.com/znz/anyenv-git.git $(anyenv root)/plugins/anyenv-git
+git clone https://github.com/rugamaga/anyenv-tfenv-init.git $(anyenv root)/plugins/anyenv-tfenv-init
+```
+
+**envをインストール
+```sh
+anyenv install jenv
+anyenv install rbenv
+anyenv install pyenv
+anyenv install tfenv
+anyenv install nodenv
+```
 
 ### vim-plug
-`vim -c PlugInstall -c q -c q`
+```sh
+vim -c PlugInstall -c q -c q
+```
 
 ### Mackup
 Dropboxアプリを設定してからリストアを実行する
 
-`mackup restore`
+```sh
+mackup restore
+```
+
+### VSCode
+コマンドパレットで `Shell Command: Install 'code' command in PATH` を実行
