@@ -23,9 +23,20 @@ highlight SpecialKey ctermbg=NONE guibg=NONE
 highlight LineNr ctermbg=NONE guibg=NONE
 highlight Folded ctermbg=NONE guibg=NONE
 highlight EndOfBuffer ctermbg=NONE guibg=NONE
-"行削除時にブラックホールレジスタに放り込む
-nnoremap d "_d
+"削除時にブラックホールレジスタに放り込む
 vnoremap d "_d
+nnoremap d "_d
+vnoremap D "_D
+nnoremap D "_D
+vnoremap x "_x
+nnoremap x "_x
+vnoremap X "_X
+nnoremap X "_X
+vnoremap s "_s
+nnoremap s "_s
+vnoremap S "_S
+nnoremap S "_S
+nnoremap ci "_ci
 "マウス操作を有効にする
 set mouse=a
 set ttymouse=sgr
@@ -43,6 +54,8 @@ highlight DiffText   cterm=bold ctermfg=10 ctermbg=21
 set formatoptions=q
 set textwidth=0
 au FileType gitcommit setlocal tw=0
+"jjでインサートモードから抜ける
+inoremap <silent> jj <ESC>
 "=====================================================
 "行番号を表示する
 set number
