@@ -158,13 +158,13 @@ abbrev-alias bc='brew cleanup'
 abbrev-alias buc='brew upgrade && brew cleanup'
 abbrev-alias cask='brew cask'
 
-alias lsd=' lsd -F --group-dirs first'
-abbrev-alias ls='lsd -1'
-abbrev-alias la='lsd -1A'
-abbrev-alias ll='lsd -l'
-abbrev-alias lla='lsd -lA'
-abbrev-alias lf='lsd -A | fzf'
-abbrev-alias llf='lsd -Al | fzf'
+alias exa=' exa -Fh --group-directories-first --git --icons --time-style=long-iso '
+abbrev-alias ls='exa -1'
+abbrev-alias la='exa -1a'
+abbrev-alias ll='exa -l'
+abbrev-alias lla='exa -la'
+abbrev-alias lf='exa -a | fzf'
+abbrev-alias llf='exa -la | fzf'
 abbrev-alias cat='bat -pp'
 
 alias rm='rm -i'
@@ -262,7 +262,7 @@ function vl() {
 
 function zz() {
     local dir=$(fasd -Rdl $@ \
-                | fzf --preview "lsd -F --group-dirs first --color always {}" \
+                | fzf --preview "exa -1F --group-directories-first --color=always {}" \
                       --exit-0 --no-unicode --preview-window=right:30%)
     [ $dir ] && cd $dir
 }
@@ -281,7 +281,7 @@ function c() {
 
 function ghq-look() {
     local src=$(ghq list \
-                | fzf --preview "lsd -F --group-dirs first --color always $(ghq root)/{}" \
+                | fzf --preview "exa -1F --group-directories-first --color=always $(ghq root)/{}" \
                       --exit-0 --preview-window=right:30%)
     if [ -n "$src" ]; then
         cd $(ghq root)/$src
@@ -328,7 +328,11 @@ precmd_functions+=(__update_history)
 
 ########################################
 # cd後に自動でls実行
-function chpwd() { ls }
+chpwd() {
+    if [[ $(pwd) != $HOME ]]; then;
+        ls
+    fi
+}
 
 ########################################
 # zcompile
