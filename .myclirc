@@ -65,8 +65,8 @@ wider_completion_menu = True
 # \t - Product type (Percona, MySQL, MariaDB)
 # \A - DSN alias name (from the [alias_dsn] section)
 # \u - Username
-prompt = '\n[\R:\m:\s] \u@\h:\d\n > '
-prompt_continuation = '->'
+prompt = '\n[\R:\m:\s] \u@\h:\d\n> '
+prompt_continuation = '>'
 
 # Skip intro info on startup and outro info on exit
 less_chatty = False

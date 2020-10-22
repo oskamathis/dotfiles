@@ -4,15 +4,15 @@ set main-view = id date author:email-user commit-title:graph=yes,refs=yes
 # main view の日時表示設定
 set main-view-date = relative-compact
 
-# blame view の行数表示をON、intervalを1に
-set blame-view  = date:default author:email-user id:yes,color line-number:yes,interval=1 text
+# blame view の行数表示のintervalを1に
+set blame-view  = date:default author:email-user id:yes,color line-number:no,interval=1 text
 
-# Pager 系の行数表示をON、intervalを1に (default: line-number:no,interval=5)
-set pager-view  = line-number:yes,interval=1 text
-set stage-view  = line-number:yes,interval=1 text
-set log-view    = line-number:yes,interval=1 text
-set blob-view   = line-number:yes,interval=1 text
-set diff-view   = line-number:yes,interval=1 text:yes,commit-title-overflow=no
+# Pager 系の行数表示のintervalを1に (default: line-number:no,interval=5)
+set pager-view  = line-number:no,interval=1 text
+set stage-view  = line-number:no,interval=1 text
+set log-view    = line-number:no,interval=1 text
+set blob-view   = line-number:no,interval=1 text
+set diff-view   = line-number:no,interval=1 text:yes,commit-title-overflow=no
 
 # utf-8 文字で画面描画する (~でトグル)
 set line-graphics = utf-8

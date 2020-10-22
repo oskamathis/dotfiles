@@ -7,13 +7,14 @@ endif
 
 call plug#begin('~/.vim/plugged')
 Plug 'joshdick/onedark.vim'
+Plug 'doums/darcula'
 Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf.vim'
 call plug#end()
 
 "シンタックスハイライト設定
 syntax on
-colorscheme onedark
+colorscheme darcula
 "TrueColor
 set termguicolors
 "背景透過
@@ -56,6 +57,7 @@ set textwidth=0
 au FileType gitcommit setlocal tw=0
 "jjでインサートモードから抜ける
 inoremap <silent> jj <ESC>
+inoremap <silent> っj <ESC>
 "=====================================================
 "行番号を表示する
 set number
