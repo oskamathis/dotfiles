@@ -21,9 +21,9 @@ zinit light-mode for \
     zsh-users/zsh-autosuggestions \
     zsh-users/zsh-completions \
     zsh-users/zsh-history-substring-search \
+    zsh-users/zsh-syntax-highlighting \
     junegunn/fzf-bin \
     junegunn/fzf \
-    zsh-users/zsh-syntax-highlighting \
     momo-lab/zsh-abbrev-alias \
     b4b4r07/enhancd \
 
@@ -150,9 +150,12 @@ setopt auto_param_slash
 # エイリアス
 abbrev-alias --init
 abbrev-alias relog=' exec $SHELL -l' || alias relog=' exec $SHELL -l'
+alias mkcd=' (){mkdir $1 && cd $1}'
+abbrev-alias rlh=' remove-last-history'
 
 abbrev-alias b='brew'
 abbrev-alias bl='brew list'
+abbrev-alias bs=' brew search'
 abbrev-alias bu='brew upgrade'
 abbrev-alias bc='brew cleanup'
 abbrev-alias buc='brew upgrade && brew cleanup'
@@ -167,14 +170,15 @@ abbrev-alias lf='exa -a | fzf'
 abbrev-alias llf='exa -la | fzf'
 abbrev-alias cat='bat -pp'
 
-alias rm='rm -i'
-alias cp='cp -i'
-alias mv='mv -i'
-alias mkdir='mkdir -p'
+alias rm=' rm -i'
+alias cp=' cp -i'
+alias mv=' mv -i'
+alias mkdir=' mkdir -p'
 alias man=' man'
 alias cd=' __enhancd::cd'
 alias less=' less'
 alias bat=' bat'
+alias vi=' vi'
 alias vim=' vim'
 alias code=' code'
 alias open=' open'
@@ -184,55 +188,68 @@ alias zz=' zz'
 alias v=' v'
 alias c=' c'
 alias abbrev-alias=' abbrev-alias'
+alias ghq=' ghq'
+alias rg=' rg'
+alias kill=' kill'
 
-abbrev-alias gs='git status'
-abbrev-alias gf='git fetch'
-abbrev-alias gsu='git stash -u'
-abbrev-alias gsa='git stash apply'
-abbrev-alias gsp='git stash pop'
-abbrev-alias gsc='git stash clear'
-abbrev-alias gc='git checkout'
-abbrev-alias gcb='git checkout -b'
-abbrev-alias gcl='git-checkout-local'
-abbrev-alias gcr='git-checkout-remote'
-abbrev-alias gps='git push'
-abbrev-alias -e gpsu='git push -u origin $(git_current_branch_name)'
-abbrev-alias gps-f='git push --force-with-lease'
-abbrev-alias gpl='git pull'
-abbrev-alias gplr='git pull --rebase origin develop'
-abbrev-alias -e gpl-f='git reset --hard origin/$(git_current_branch_name)'
-abbrev-alias gr='git rebase'
-abbrev-alias gra='git rebase --abort'
-abbrev-alias grc='git rebase --continue'
-abbrev-alias grs='git rebase --skip'
-abbrev-alias gb='git branch'
-abbrev-alias -e gbm='git branch -m $(git_current_branch_name)'
-abbrev-alias gb-d='git branch -D'
-abbrev-alias gm='git merge'
-abbrev-alias gmn='git merge --no-ff --no-commit'
-abbrev-alias gmc='git merge --continue'
-abbrev-alias gma='git merge --abort'
-abbrev-alias gms='git merge --skip'
+abbrev-alias gi=' git-init'
+abbrev-alias gf=' git fetch'
+abbrev-alias gstu=' git stash -u'
+abbrev-alias gsta=' git stash apply'
+abbrev-alias gstp=' git stash pop'
+abbrev-alias gstc=' git stash clear'
+abbrev-alias gt='git tag -a'
+abbrev-alias gtd='git tag -d'
+abbrev-alias gs=' git switch'
+abbrev-alias gsc=' git switch -c'
+abbrev-alias gsd=' git switch -d'
+abbrev-alias gr=' git restore'
+abbrev-alias grs=' git restore -s'
+abbrev-alias gsl=' git-switch-local'
+abbrev-alias gst=' git-switch-tag'
+abbrev-alias gsr=' git-switch-remote'
 
-abbrev-alias guc='git-user-company'
-abbrev-alias gup='git-user-personal'
+abbrev-alias gb=' git branch'
+abbrev-alias -e gbm=' git branch -m $(git_current_branch_name)'
+abbrev-alias gb-d=' git branch -D'
 
-abbrev-alias gl='ghq-look'
+abbrev-alias gps=' git push'
+abbrev-alias -e gpsu=' git push -u origin $(git_current_branch_name)'
+abbrev-alias gps-f=' git push --force-with-lease'
+abbrev-alias gpl=' git pull'
+abbrev-alias gplr=' git pull --rebase origin develop'
+abbrev-alias -e gpl-f=' git reset --hard origin/$(git_current_branch_name)'
+
+abbrev-alias grb=' git rebase'
+abbrev-alias grba=' git rebase --abort'
+abbrev-alias grbc=' git rebase --continue'
+abbrev-alias grbs=' git rebase --skip'
+
+abbrev-alias gm=' git merge'
+abbrev-alias gmn=' git merge --no-ff --no-commit'
+abbrev-alias gmc=' git merge --continue'
+abbrev-alias gma=' git merge --abort'
+abbrev-alias gms=' git merge --skip'
+
+abbrev-alias guc=' git-user-company'
+abbrev-alias gup=' git-user-personal'
+
+abbrev-alias gl=' ghq-look'
 
 abbrev-alias dc='docker-compose'
 abbrev-alias dce='docker-compose exec'
 
 abbrev-alias vrc='vim ~/.zshrc'
-abbrev-alias vh='vim ~/.zsh_history'
+abbrev-alias vh='vim $HISTFILE'
 
 abbrev-alias crc='code ~/.zshrc'
-abbrev-alias ch='code ~/.zsh_history'
+abbrev-alias ch='code $HISTFILE'
 
 abbrev-alias t='tmux'
 abbrev-alias tls='tmux ls'
 abbrev-alias tlsk='tmux lsk | fzf'
 abbrev-alias ts='tmux new -s'
-abbrev-alias tr='tmux start && tmux run ~/.tmux/plugins/tmux-resurrect/scripts/restore.sh'
+abbrev-alias trs='tmux start && tmux run ~/.tmux/plugins/tmux-resurrect/scripts/restore.sh && tmux a'
 abbrev-alias ta='tmux a'
 abbrev-alias tas='tmux a -t'
 abbrev-alias tk='tmux kill-session -t'
@@ -252,11 +269,13 @@ abbrev-alias -g F='| fzf'
 abbrev-alias -g P='| pbcopy'
 abbrev-alias -g C='| bat -pp'
 abbrev-alias -g B='| bat'
+abbrev-alias -g J='| jid'
+abbrev-alias -g JF='| gron | fzf | gron -u'
 
 ########################################
 # 自作関数
 vim_version=`vim --version | head -1 | sed 's/^.*\ \([0-9]\)\.\([0-9]\)\ .*$/\1\2/'`
-function vl() {
+function vless() {
     /usr/local/share/vim/vim${vim_version}/macros/less.sh $@
 }
 
@@ -288,43 +307,48 @@ function ghq-look() {
     fi
 }
 
-function git-checkout-local() {
-    local branches branch
-    branches=$(git branch) &&
-    branch=$(echo "$branches" | fzf +m) &&
-    git checkout $(echo "$branch" | awk '{print $1}' | sed "s/.* //")
+function git-init() {
+    root=$(ghq root)/github.com/OskaMathis
+    mkdir $root/$1
+    cd $root/$1
+    git init
+    git-user-personal
+    echo "# $1\n" > README.md
+    git add README.md
+    git commit -m "first commit"
 }
 
-function git-checkout-remote() {
+function git-switch-local() {
+    local branches branch
+    branches=$(git branch | tr -d " ") &&
+    branch=$(echo "$branches" | fzf +m --preview "git log --oneline --color=always {}") &&
+    git switch $(echo "$branch" | awk '{print $1}' | sed "s/.* //")
+}
+
+function git-switch-tag() {
+    git pull --tags
+    local tags tag
+    tags=$(git tag) &&
+    tag=$(echo "$tags" | fzf +m --preview "git log --oneline --color=always {}") &&
+    git switch -d $(echo "$tag" | awk '{print $1}' | sed "s/.* //")
+}
+
+function git-switch-remote() {
     git fetch
     local branches branch
-    branches=$(git branch --all | grep -v HEAD) &&
-    branch=$(echo "$branches" | fzf +m) &&
-    git checkout $(echo "$branch" | sed "s/.* //" | sed "s#remotes/[^/]*/##")
+    branches=$(git branch --all | grep -v HEAD | tr -d " ") &&
+    branch=$(echo "$branches" | fzf +m --preview "git log --oneline --color=always {}") &&
+    git switch $(echo "$branch" | sed "s/.* //" | sed "s#remotes/[^/]*/##")
 }
 
 function git_current_branch_name() {
     git symbolic-ref --short HEAD
 }
 
-########################################
-# 実行に失敗したコマンドを履歴に残さない
-__record_command() {
-    typeset -g last_command=${1%%$'\n'}
+function remove-last-history() {
+    tail -1 $HISTFILE
+    LC_ALL=C sed -i '' -e '$d' $HISTFILE
 }
-zshaddhistory_functions+=(__record_command)
-
-__update_history() {
-    typeset last_status="$?"
-    if [[ $last_status -ne 0 && -n $last_command ]]; then
-        ed -s $HISTFILE <<EOF >/dev/null
-d
-w
-q
-EOF
-    fi
-}
-precmd_functions+=(__update_history)
 
 ########################################
 # cd後に自動でls実行
@@ -384,6 +408,7 @@ export BAT_THEME="OneHalfDark"
 export PATH="/usr/local/sbin:$PATH"
 export PATH="/usr/local/opt/git/bin:$PATH"
 export PATH="/usr/local/opt/mysql-client/bin:$PATH"
+export PATH="$HOME/.anyenv/bin:$PATH"
 
 # if (which zprof > /dev/null) ;then
 #     zprof
