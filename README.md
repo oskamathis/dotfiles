@@ -19,7 +19,7 @@
 5. tmux-powerlineを導入
 6. HomebrewでインストールしたGitのdiff-highlightを使えるようにする
 7. ログインシェルを変更
-8. sudoコマンドの認証にTouchIDを使えるようにする
+8. sudoコマンドの認証にTouch IDを使えるようにする
 
 
 ## 手動設定項目
