@@ -70,6 +70,11 @@ zstyle ':zle:*' word-style unspecified
 ########################################
 # 補完
 # 補完機能を有効にする
+FPATH=$(brew --prefix)/share/zsh/site-functions:$FPATH
+
+autoload -U bashcompinit
+bashcompinit
+
 autoload -Uz compinit
 compinit -C
 zstyle ':completion:*:default' menu select=2
@@ -95,7 +100,6 @@ zstyle ':completion:*' ignore-parents parent pwd ..
 # sudo の後ろでコマンド名を補完する
 zstyle ':completion:*:sudo:*' command-path /usr/local/sbin /usr/local/bin \
                                            /usr/sbin /usr/bin /sbin /bin /usr/X11R6/bin
-
 # ps コマンドのプロセス名補完
 zstyle ':completion:*:processes' command 'ps x -o pid,s,args'
 
@@ -390,6 +394,7 @@ export LESS_TERMCAP_us=$'\E[01;32m'      # Begins underline.
 eval "$(anyenv init -)"
 eval "$(direnv hook zsh)"
 eval "$(fasd --init auto)" && unalias zz && unalias sd
+eval "$(register-python-argcomplete pipx)"
 
 ########################################
 # 環境変数
@@ -409,6 +414,7 @@ export PATH="/usr/local/sbin:$PATH"
 export PATH="/usr/local/opt/git/bin:$PATH"
 export PATH="/usr/local/opt/mysql-client/bin:$PATH"
 export PATH="$HOME/.anyenv/bin:$PATH"
+export PATH="$PATH:$HOME/.local/bin" # pipx
 
 # if (which zprof > /dev/null) ;then
 #     zprof

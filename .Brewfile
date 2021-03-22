@@ -39,6 +39,7 @@ brew "awscli"
 brew "fabianishere/personal/pam_reattach"
 brew "gradle-completion"
 brew "mycli"
+brew "pipx"
 
 brew "vitorgalvao/tiny-scripts/cask-repair"
 cask "font-hackgen"
