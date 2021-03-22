@@ -10,6 +10,7 @@ Plug 'joshdick/onedark.vim'
 Plug 'doums/darcula'
 Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf.vim'
+Plug 'ConradIrwin/vim-bracketed-paste'
 call plug#end()
 
 "シンタックスハイライト設定
@@ -58,6 +59,8 @@ au FileType gitcommit setlocal tw=0
 "jjでインサートモードから抜ける
 inoremap <silent> jj <ESC>
 inoremap <silent> っj <ESC>
+"ファイル末尾に自動で改行が付かないようにする
+set nofixeol
 "=====================================================
 "行番号を表示する
 set number
