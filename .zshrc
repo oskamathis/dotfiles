@@ -157,13 +157,15 @@ abbrev-alias relog=' exec $SHELL -l' || alias relog=' exec $SHELL -l'
 alias mkcd=' (){mkdir $1 && cd $1}'
 abbrev-alias rlh=' remove-last-history'
 
+alias brew="PATH=/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin brew"
 abbrev-alias b='brew'
 abbrev-alias bl='brew list'
 abbrev-alias bs=' brew search'
 abbrev-alias bu='brew upgrade'
 abbrev-alias bc='brew cleanup'
 abbrev-alias buc='brew upgrade && brew cleanup'
-abbrev-alias cask='brew cask'
+abbrev-alias bi='brew install'
+abbrev-alias bic='brew install --cask'
 
 alias exa=' exa -Fh --group-directories-first --git --icons --time-style=long-iso '
 abbrev-alias ls='exa -1'

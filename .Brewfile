@@ -41,7 +41,6 @@ brew "gradle-completion"
 brew "mycli"
 brew "pipx"
 
-brew "vitorgalvao/tiny-scripts/cask-repair"
 cask "font-hackgen"
 cask "font-hackgen-nerd"
 
