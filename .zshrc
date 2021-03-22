@@ -168,14 +168,21 @@ abbrev-alias bi='brew install'
 abbrev-alias bic='brew install --cask'
 
 alias exa=' exa -Fh --group-directories-first --git --icons --time-style=long-iso '
-abbrev-alias ls='exa -1'
+abbrev-alias l1='exa -1'
 abbrev-alias la='exa -1a'
 abbrev-alias ll='exa -l'
 abbrev-alias lla='exa -la'
 abbrev-alias lf='exa -a | fzf'
 abbrev-alias llf='exa -la | fzf'
-abbrev-alias cat='bat -pp'
 
+alias cat='bat --style=plain --pager=never'
+abbrev-alias du='dust'
+abbrev-alias top='ytop'
+abbrev-alias ps='procs'
+abbrev-alias man='tldr'
+abbrev-alias bw='bandwhich'
+
+alias ls=' ls'
 alias rm=' rm -i'
 alias cp=' cp -i'
 alias mv=' mv -i'
@@ -183,11 +190,11 @@ alias mkdir=' mkdir -p'
 alias man=' man'
 alias cd=' __enhancd::cd'
 alias less=' less'
-alias bat=' bat'
 alias vi=' vi'
 alias vim=' vim'
 alias code=' code'
 alias open=' open'
+alias touch=' touch'
 alias where=' where'
 alias which=' which'
 alias zz=' zz'
@@ -195,7 +202,14 @@ alias v=' v'
 alias c=' c'
 alias abbrev-alias=' abbrev-alias'
 alias ghq=' ghq'
+alias bat=' bat'
 alias rg=' rg'
+alias fd=' fd'
+alias dust=' dust'
+alias ytop=' ytop'
+alias procs=' procs'
+alias tldr=' tldr'
+alias bandwhich=' bandwhich'
 alias kill=' kill'
 
 abbrev-alias gi=' git-init'
@@ -277,6 +291,7 @@ abbrev-alias -g C='| bat -pp'
 abbrev-alias -g B='| bat'
 abbrev-alias -g J='| jid'
 abbrev-alias -g JF='| gron | fzf | gron -u'
+abbrev-alias -g T='| tee'
 
 ########################################
 # 自作関数
@@ -357,10 +372,10 @@ function remove-last-history() {
 }
 
 ########################################
-# cd後に自動でls実行
+# cd後に自動でlla実行
 chpwd() {
     if [[ $(pwd) != $HOME ]]; then;
-        ls
+        lla
     fi
 }
 
@@ -409,6 +424,7 @@ export FZF_DEFAULT_OPTS="--ansi --exit-0 --reverse --height 100% --border"
 export FZF_DEFAULT_COMMAND="fd --type file --follow --hidden --exclude .git"
 export FZF_FIND_FILE_COMMAND=$FZF_DEFAULT_COMMAND
 export BAT_THEME="OneHalfDark"
+export AWS_PAGER=
 
 ########################################
 # パス
