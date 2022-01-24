@@ -91,8 +91,8 @@ zstyle ':completion:*:descriptions' format '%F{yellow}Completing %B%d%b%f'$DEFAU
 # マッチ種別を別々に表示
 zstyle ':completion:*' group-name ''
 
-# 補完で小文字でも大文字にマッチさせる
-zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
+# 小文字大文字の区別なしで補完、対象が見つからなかったらアスタリスクを付けて補完
+zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|=*' 'l:|=* r:|=*'
 
 # ../ の後は今いるディレクトリを補完しない
 zstyle ':completion:*' ignore-parents parent pwd ..
@@ -175,19 +175,18 @@ abbrev-alias lla='exa -la'
 abbrev-alias lf='exa -a | fzf'
 abbrev-alias llf='exa -la | fzf'
 
-alias cat='bat --style=plain --pager=never'
-abbrev-alias du='dust'
-abbrev-alias top='ytop'
-abbrev-alias ps='procs'
 abbrev-alias man='tldr'
-abbrev-alias bw='bandwhich'
+#abbrev-alias sed='gsed'
+#abbrev-alias xargs='gxargs'
+#abbrev-alias awk='gawk'
+#abbrev-alias sort='gsort'
+#abbrev-alias find='gfind'
 
 alias ls=' ls'
 alias rm='rm -i'
 alias cp='cp -i'
 alias mv='mv -i'
 alias mkdir='mkdir -p'
-alias grep=' grep'
 alias man=' man'
 alias cd=' __enhancd::cd'
 alias less=' less'
@@ -205,12 +204,7 @@ alias abbrev-alias=' abbrev-alias'
 alias ghq=' ghq'
 alias bat=' bat'
 alias rg=' rg'
-alias fd=' fd'
-alias dust=' dust'
-alias ytop=' ytop'
-alias procs=' procs'
 alias tldr=' tldr'
-alias bandwhich=' bandwhich'
 alias kill=' kill'
 alias pbcopy='pbcopy && pbpaste'
 
@@ -286,6 +280,8 @@ abbrev-alias tfpr='terraform plan -refresh=false'
 abbrev-alias tfd='terraform destroy'
 abbrev-alias tfw='terraform workspace'
 abbrev-alias tff='terraform fmt'
+abbrev-alias tfv='terraform version'
+abbrev-alias tfpv='terraform providers'
 
 abbrev-alias zt='time ( zsh -i -c exit )'
 abbrev-alias al='abbrev-alias'
@@ -299,7 +295,7 @@ abbrev-alias -g L='| less'
 abbrev-alias -g G='| rg'
 abbrev-alias -g F='| fzf'
 abbrev-alias -g P='| pbcopy'
-abbrev-alias -g C='| bat -pp'
+abbrev-alias -g C='| cat'
 abbrev-alias -g B='| bat'
 abbrev-alias -g J='| jid'
 abbrev-alias -g JF='| gron | fzf | gron -u'
@@ -437,6 +433,9 @@ export FZF_DEFAULT_COMMAND="fd --type file --follow --hidden --exclude .git"
 export FZF_FIND_FILE_COMMAND=$FZF_DEFAULT_COMMAND
 export BAT_THEME="OneHalfDark"
 export AWS_PAGER=
+export TF_CLI_ARGS_plan="--parallelism=30"
+export TF_CLI_ARGS_apply="--parallelism=30"
+export TF_CLI_ARGS_destroy="--parallelism=30"
 
 ########################################
 # パス

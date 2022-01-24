@@ -4,23 +4,30 @@
 [core]
     excludesfile = ~/.gitignore_global
     quotepath = false
+    pager = delta
 [log]
     date = iso
 [fetch]
     prune = true
 [pull]
     rebase = false
-[pager]
-    log = diff-highlight | less
-    show = diff-highlight | less
-    diff = diff-highlight | less
+#[pager]
+#    log = diff-highlight | less
+#    show = diff-highlight | less
+#    diff = diff-highlight | less
+#    branch = cat
+
+[delta]
+    features = side-by-side line-numbers navigate
+[interactive]
+    diffFilter = delta --color-only
 [ghq]
     root = ~/develop/ghq
-# [diff]
-#     tool = vimdiff
-#     algorithm = histogram
-# [difftool]
-#     prompt = false
+#[diff]
+#    tool = vimdiff
+#    algorithm = histogram
+#[difftool]
+#    prompt = false
 
 [diff]
     tool = vscode
@@ -30,10 +37,10 @@
 [difftool "vscode"]
     cmd = '/Applications/Visual Studio Code.app/Contents/Resources/app/bin/code' --wait --diff \"$LOCAL\" \"$REMOTE\"
 
-# [merge]
+#[merge]
 #    tool = vimdiff
 #    conflictStyle = diff3
-# [mergetool]
+#[mergetool]
 #    prompt = false
 #    keepBackup = false
 
