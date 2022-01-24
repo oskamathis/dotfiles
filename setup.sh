@@ -13,7 +13,7 @@ echo '> create symbolic links'
 sh $DOTPATH/deploy.sh
 
 echo '> install Homebrew'
-which brew >/dev/null 2>&1 || /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+which brew >/dev/null 2>&1 || /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
 echo '> install packages'
 brew bundle --global
