@@ -70,7 +70,7 @@ zstyle ':zle:*' word-style unspecified
 ########################################
 # 補完
 # 補完機能を有効にする
-FPATH=$(brew --prefix)/share/zsh/site-functions:$FPATH
+FPATH=/opt/homebrew/share/zsh/site-functions:$FPATH
 
 autoload -U bashcompinit
 bashcompinit
@@ -149,6 +149,14 @@ setopt extended_glob
 
 # ディレクトリ補完時に末尾にスラッシュを追加
 setopt auto_param_slash
+
+########################################
+# 初期化
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+eval "$(anyenv init -)"
+eval "$(direnv hook zsh)"
+eval "$(fasd --init auto)" && unalias zz
+eval "$(register-python-argcomplete pipx)"
 
 ########################################
 # エイリアス
@@ -412,12 +420,14 @@ export LESS_TERMCAP_ue=$'\E[0m'          # Ends underline.
 export LESS_TERMCAP_us=$'\E[01;32m'      # Begins underline.
 
 ########################################
-# 初期化
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-eval "$(anyenv init -)"
-eval "$(direnv hook zsh)"
-eval "$(fasd --init auto)" && unalias zz && unalias sd
-eval "$(register-python-argcomplete pipx)"
+# パス
+typeset -U path PATH
+export PATH="/opt/homebrew/bin:$PATH"
+export PATH="/opt/homebrew/git/bin:$PATH"
+export PATH="/opt/homebrew/opt/mysql-client/bin:$PATH"
+export PATH="/opt/homebrew/opt/curl/bin:$PATH"
+export PATH="$HOME/.anyenv/bin:$PATH"
+export PATH="$PATH:$HOME/.local/bin" # pipx
 
 ########################################
 # 環境変数
@@ -434,14 +444,6 @@ export AWS_PAGER=
 export TF_CLI_ARGS_plan="--parallelism=30"
 export TF_CLI_ARGS_apply="--parallelism=30"
 export TF_CLI_ARGS_destroy="--parallelism=30"
-
-########################################
-# パス
-export PATH="/usr/local/sbin:$PATH"
-export PATH="/usr/local/opt/git/bin:$PATH"
-export PATH="/usr/local/opt/mysql-client/bin:$PATH"
-export PATH="$HOME/.anyenv/bin:$PATH"
-export PATH="$PATH:$HOME/.local/bin" # pipx
 
 # if (which zprof > /dev/null) ;then
 #     zprof
