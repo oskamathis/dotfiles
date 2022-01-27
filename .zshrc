@@ -9,7 +9,7 @@ fi
 if [[ ! -f $HOME/.zinit/bin/zinit.zsh ]]; then
     print -P "%F{33}▓▒░ %F{220}Installing DHARMA Initiative Plugin Manager (zdharma/zinit)…%f"
     command mkdir -p "$HOME/.zinit" && command chmod g-rwX "$HOME/.zinit"
-    command git clone https://github.com/zdharma/zinit "$HOME/.zinit/bin" && \
+    command git clone https://github.com/zdharma-continuum/zinit "$HOME/.zinit/bin" && \
         print -P "%F{33}▓▒░ %F{34}Installation successful.%f%b" || \
         print -P "%F{160}▓▒░ The clone has failed.%f%b"
 fi
@@ -17,7 +17,7 @@ fi
 source "$HOME/.zinit/bin/zinit.zsh"
 
 zinit light-mode for \
-    zinit-zsh/z-a-patch-dl \
+    zdharma-continuum/z-a-patch-dl \
     zsh-users/zsh-autosuggestions \
     zsh-users/zsh-completions \
     zsh-users/zsh-history-substring-search \
