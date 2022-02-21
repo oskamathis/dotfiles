@@ -20,8 +20,8 @@ zinit light-mode for \
     zdharma-continuum/z-a-patch-dl \
     zsh-users/zsh-autosuggestions \
     zsh-users/zsh-completions \
-    zsh-users/zsh-history-substring-search \
     zsh-users/zsh-syntax-highlighting \
+    zsh-users/zsh-history-substring-search \
     junegunn/fzf-bin \
     junegunn/fzf \
     momo-lab/zsh-abbrev-alias \
@@ -149,14 +149,6 @@ setopt extended_glob
 
 # ディレクトリ補完時に末尾にスラッシュを追加
 setopt auto_param_slash
-
-########################################
-# 初期化
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-eval "$(anyenv init -)"
-eval "$(direnv hook zsh)"
-eval "$(fasd --init auto)" && unalias zz
-eval "$(register-python-argcomplete pipx)"
 
 ########################################
 # エイリアス
@@ -422,12 +414,19 @@ export LESS_TERMCAP_us=$'\E[01;32m'      # Begins underline.
 ########################################
 # パス
 typeset -U path PATH
-export PATH="/opt/homebrew/bin:$PATH"
 export PATH="/opt/homebrew/git/bin:$PATH"
 export PATH="/opt/homebrew/opt/mysql-client/bin:$PATH"
 export PATH="/opt/homebrew/opt/curl/bin:$PATH"
 export PATH="$HOME/.anyenv/bin:$PATH"
 export PATH="$PATH:$HOME/.local/bin" # pipx
+
+########################################
+# 初期化
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+eval "$(anyenv init -)"
+eval "$(direnv hook zsh)"
+eval "$(fasd --init auto)" && unalias zz
+eval "$(register-python-argcomplete pipx)"
 
 ########################################
 # 環境変数
