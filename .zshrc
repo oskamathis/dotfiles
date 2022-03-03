@@ -306,7 +306,7 @@ function vless() {
     /usr/local/share/vim/vim${vim_version}/macros/less.sh $@
 }
 
-function zz() {
+function j() {
     local dir=$(fasd -Rdl $@ \
                 | fzf --preview "exa -1F --group-directories-first --color=always {}" \
                       --exit-0 --no-unicode --preview-window=right:30%)
@@ -425,7 +425,6 @@ export PATH="$PATH:$HOME/.local/bin" # pipx
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 eval "$(anyenv init -)"
 eval "$(direnv hook zsh)"
-eval "$(fasd --init auto)" && unalias zz
 eval "$(register-python-argcomplete pipx)"
 
 ########################################
