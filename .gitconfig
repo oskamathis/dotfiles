@@ -1,6 +1,6 @@
 [user]
     email = oskamathis@gmail.com
-    name = OskaMathis
+    name = oskamathis
 [core]
     excludesfile = ~/.gitignore_global
     quotepath = false
