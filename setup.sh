@@ -25,7 +25,7 @@ echo '> setup diff-highlight'
 sudo ln -s /opt/homebrew/share/git-core/contrib/diff-highlight/diff-highlight /opt/homebrew/bin/diff-highlight
 
 echo '> change login shell'
-sudo sh -c 'echo /opt/homebrew/bin/zsh >> /etc/shells' && chsh -s /usr/local/bin/zsh
+sudo sh -c 'echo /opt/homebrew/bin/zsh >> /etc/shells' && chsh -s /opt/homebrew/bin/zsh
 
 echo '> setup pam'
 if ! grep -Eq '^auth\s.*\spam_tid\.so$' /etc/pam.d/sudo; then
