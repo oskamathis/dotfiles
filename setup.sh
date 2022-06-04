@@ -3,7 +3,7 @@
 set -u # 未定義の変数使用時に終了
 
 DOTPATH=~/dotfiles
-GITHUB_URL=https://github.com/OskaMathis/dotfiles.git
+GITHUB_URL=https://github.com/oskamathis/dotfiles.git
 
 echo '> download dotfiles'
 git clone --recursive "$GITHUB_URL" "$DOTPATH"
@@ -19,7 +19,7 @@ echo '> install packages'
 brew bundle --global
 
 echo '> install tmux-powerline'
-git clone https://github.com/OskaMathis/tmux-powerline.git ~/.tmux/tmux-powerline
+git clone https://github.com/oskamathis/tmux-powerline.git ~/.tmux/tmux-powerline
 
 echo '> setup diff-highlight'
 sudo ln -s /opt/homebrew/share/git-core/contrib/diff-highlight/diff-highlight /opt/homebrew/bin/diff-highlight

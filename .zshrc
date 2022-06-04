@@ -339,7 +339,7 @@ function ghq-look() {
 }
 
 function git-init() {
-    root=$(ghq root)/github.com/OskaMathis
+    root=$(ghq root)/github.com/oskamathis
     mkdir $root/$1
     cd $root/$1
     git init
