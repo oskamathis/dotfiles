@@ -196,7 +196,8 @@ alias man='tldr'
 \alias touch='touch'
 \alias where=' where'
 \alias which=' which'
-\alias zz=' zz'
+alias zz='j'
+\alias j=' j'
 \alias v=' v'
 \alias c=' c'
 \alias ghq=' ghq'
@@ -277,6 +278,9 @@ alias tfr='terraform refresh'
 alias tfpr='terraform plan -refresh=false'
 alias tfd='terraform destroy'
 alias tfw='terraform workspace'
+alias tfwl='terraform workspace list'
+alias tfws='terraform workspace select'
+alias tfwf='terraform workspace list | fzf | xargs terraform workspace select'
 alias tff='terraform fmt'
 alias tfv='terraform version'
 alias tfpv='terraform providers'
@@ -426,6 +430,7 @@ export PATH="$PATH:$HOME/.local/bin" # pipx
 eval "$(anyenv init -)"
 eval "$(direnv hook zsh)"
 eval "$(register-python-argcomplete pipx)"
+eval "$(fasd --init zsh-hook)"
 
 ########################################
 # 環境変数
