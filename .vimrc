@@ -61,6 +61,8 @@ inoremap <silent> jj <ESC>
 inoremap <silent> っj <ESC>
 "ファイル末尾に自動で改行が付かないようにする
 set nofixeol
+"Ex Modeに入らないようにマクロ再生コマンドに置き換え
+nnoremap Q @q
 "=====================================================
 "行番号を表示する
 set number
