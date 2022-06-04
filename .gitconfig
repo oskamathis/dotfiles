@@ -23,6 +23,11 @@
     diffFilter = delta --color-only
 [ghq]
     root = ~/develop/ghq
+[includeIf "gitdir:~/develop/ghq/github.com/oskamathis/"]
+    path = ~/.gitconfig-personal
+[includeIf "gitdir:~/dotfiles/"]
+    path = ~/.gitconfig-personal
+
 #[diff]
 #    tool = vimdiff
 #    algorithm = histogram
