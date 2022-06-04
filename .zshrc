@@ -444,9 +444,10 @@ export FZF_DEFAULT_COMMAND="fd --type file --follow --hidden --exclude .git"
 export FZF_FIND_FILE_COMMAND=$FZF_DEFAULT_COMMAND
 export BAT_THEME="OneHalfDark"
 export AWS_PAGER=
-export TF_CLI_ARGS_plan="--parallelism=30"
-export TF_CLI_ARGS_apply="--parallelism=30"
-export TF_CLI_ARGS_destroy="--parallelism=30"
+export TF_CLI_ARGS_refresh="-parallelism=30"
+export TF_CLI_ARGS_plan="-parallelism=30"
+export TF_CLI_ARGS_apply="-parallelism=30"
+export TF_CLI_ARGS_destroy="-parallelism=30"
 
 # if (which zprof > /dev/null) ;then
 #     zprof
