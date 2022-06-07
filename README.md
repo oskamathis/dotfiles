@@ -8,7 +8,7 @@
 
 ## セットアップ手順
 1. `xcode-select --install` (Gitコマンドを使えるようにする)
-2. `curl -L raw.github.com/oskamathis/dotfiles/master/setup.sh | bash`
+2. `curl -L dot.oskamathis.dev | bash`
 
 
 ## セットアップ内容
