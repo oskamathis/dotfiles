@@ -25,7 +25,6 @@
 ## 手動設定項目
 ### anyenv
 初期化
-
 ```sh
 anyenv install --init
 ```
@@ -53,8 +52,7 @@ vim -c PlugInstall -c q -c q
 ```
 
 ### Mackup
-Dropboxアプリを設定してからリストアを実行する
-
+Dropboxアプリの設定を済ませてからリストアを実行する
 ```sh
 mackup restore
 ```
@@ -64,9 +62,6 @@ mackup restore
 
 ### pipx
 pipxは一括でインストールする方法が無いので手動でインストールする
-
 ```sh
-pipx install iredis
 pipx install datadog
 ```
-
