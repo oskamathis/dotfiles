@@ -25,7 +25,6 @@ zinit light-mode for \
     junegunn/fzf-bin \
     junegunn/fzf \
     momo-lab/zsh-abbrev-alias \
-    b4b4r07/enhancd \
 
 zinit ice depth=1; zinit light romkatv/powerlevel10k
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
@@ -187,7 +186,7 @@ alias man='tldr'
 \alias mv='mv -i'
 \alias mkdir='mkdir -p'
 \alias man=' man'
-\alias cd=' __enhancd::cd'
+\alias cd=' cd'
 \alias less=' less'
 \alias vi=' vi'
 \alias vim=' vim'
