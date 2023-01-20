@@ -4,23 +4,18 @@
 [core]
     excludesfile = ~/.gitignore_global
     quotepath = false
-    pager = delta
 [log]
     date = iso
 [fetch]
     prune = true
 [pull]
     rebase = false
-#[pager]
-#    log = diff-highlight | less
-#    show = diff-highlight | less
-#    diff = diff-highlight | less
-#    branch = cat
+[pager]
+    log = diff-highlight | less
+    show = diff-highlight | less
+    diff = diff-highlight | less
+    branch = cat
 
-[delta]
-    features = side-by-side line-numbers navigate
-[interactive]
-    diffFilter = delta --color-only
 [ghq]
     root = ~/develop/ghq
 [includeIf "gitdir:~/develop/ghq/github.com/oskamathis/"]
