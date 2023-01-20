@@ -16,6 +16,12 @@
     diff = diff-highlight | less
     branch = cat
 
+[alias]
+    get = !ghq get -p
+    cd = "!ghq look `ghq list | fzf $(echo $1 | awk '{if($1!=\"\") print \"-q\" $1}')` ; :"
+    list = !ghq list
+    root = "!exec $SHELL ; :"
+    unget = "!REPO=`ghq list | fzf $(echo $1 | awk '{if($1!=\"\") print \"-q\" $1}') | tee /dev/tty` ; if [ -n \"$REPO\" -a -e \"$(ghq root)/$REPO\" ] ; then REPO=\"`ghq root`/$REPO\" ; else exit 1 ; fi ; if [ -n \"$(git -C \"$REPO\" -c status.color=always status --short | tee /dev/tty)\" -o -n \"$(git -C \"$REPO\" log --branches --not --remotes --simplify-by-decoration --decorate --oneline --color=always | tee /dev/tty)\" ] ; then read -rp \"These changes will be deleted permanently. OK? [yN]\" yN ; case \"$yN\" in [Yy]*) : ;; '' | [Nn]* | *) echo Aborted. ; exit 1 ;; esac ; fi ; for i in `seq 3` ; do if [ -n \"$(realpath --relative-to=\"$REPO\" . | awk '! /^\\.\\./')\" ] ; then cd `dirname $REPO` ; fi ; rm -rf \"$REPO\" ; REPO=`dirname $REPO` ; if [ -n \"$(ls -A \"$REPO\")\" -o \"$(ghq root)\" = \"$REPO\" ] ; then break ; fi ; done ; echo Deleted. ; :"
 [ghq]
     root = ~/develop/ghq
 [includeIf "gitdir:~/develop/ghq/github.com/oskamathis/"]
