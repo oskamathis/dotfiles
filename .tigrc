@@ -148,8 +148,8 @@ bind generic <Esc>~ :toggle line-graphics
 bind generic S      ?git stash save "%(prompt Enter stash comment: )"
 
 # Y で stash pop
-bind diff    Y      ?git stash pop %(stash)
-bind stash   Y      ?git stash pop %(stash)
+bind diff    P      ?git stash pop %(stash)
+bind stash   P      ?git stash pop %(stash)
 
 # Alt-y で stash apply
 bind diff    <Esc>y ?git stash apply %(stash)
@@ -188,14 +188,14 @@ bind refs    x      ?sh -c "git branch --merged | grep -vE '^\\*|master$|develop
 
 ########################################
 # commit ID コピー
-# ` で commit ID をクリップボードにコピー (Mac用)
-bind generic `      @bash -c "echo -n '%(commit)' | pbcopy"
+# Y で commit ID をクリップボードにコピー (Mac用)
+bind generic Y      @bash -c "echo -n '%(commit)' | pbcopy"
 
-# ` でファイルパスをクリップボードにコピー (Mac用)
-bind stage   `      @bash -c "echo -n '%(file)' | pbcopy"
-bind status  `      @bash -c "echo -n '%(file)' | pbcopy"
-bind tree    `      @bash -c "echo -n '%(file)' | pbcopy"
-bind blob    `      @bash -c "echo -n '%(file)' | pbcopy"
+# Y でファイルパスをクリップボードにコピー (Mac用)
+bind stage   Y      @bash -c "echo -n '%(file)' | pbcopy"
+bind status  Y     @bash -c "echo -n '%(file)' | pbcopy"
+bind tree    Y      @bash -c "echo -n '%(file)' | pbcopy"
+bind blob    Y      @bash -c "echo -n '%(file)' | pbcopy"
 
 ########################################
 # ! で revert
