@@ -200,6 +200,7 @@ alias zz='j'
 \alias v=' v'
 \alias c=' c'
 \alias ghq=' ghq'
+\alias cat=' cat'
 \alias bat=' bat'
 \alias rg=' rg'
 \alias tldr=' tldr'
@@ -211,7 +212,7 @@ alias gf=' git fetch'
 alias gstu=' git stash -u'
 alias gsta=' git stash apply'
 alias gstp=' git stash pop'
-alias gstc=' git stash clear'
+alias gstc=' git-stash-clear'
 alias gt='git tag -a'
 alias gtd='git tag -d'
 alias gs=' git switch'
@@ -369,6 +370,16 @@ function git-switch-remote() {
     branches=$(git branch --all | grep -v HEAD | tr -d " ") &&
     branch=$(echo "$branches" | fzf +m --preview "git log --oneline --color=always {}") &&
     git switch $(echo "$branch" | sed "s/.* //" | sed "s#remotes/[^/]*/##")
+}
+
+function git-stash-clear() {
+    read "yn?remove all the stash entries? (y/N): "
+    if [[ $yn = [yY] ]]; then
+        git stash clear
+        echo "all the stash entries are successfully removed."
+    else
+        echo "canceled."
+    fi
 }
 
 function git_current_branch_name() {
