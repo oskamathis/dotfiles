@@ -143,9 +143,6 @@ setopt hist_reduce_blanks
 # 履歴を検索するとき重複は飛ばす
 setopt hist_find_no_dups
 
-# 高機能なワイルドカード展開を使用する
-setopt extended_glob
-
 # ディレクトリ補完時に末尾にスラッシュを追加
 setopt auto_param_slash
 
