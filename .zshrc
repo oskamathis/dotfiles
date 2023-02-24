@@ -245,9 +245,6 @@ alias gmc=' git merge --continue'
 alias gma=' git merge --abort'
 alias gms=' git merge --skip'
 
-alias guc=' git-user-company'
-alias gup=' git-user-personal'
-
 alias gl=' ghq-look'
 
 alias dc='docker-compose'
@@ -342,7 +339,6 @@ function git-init() {
     mkdir $root/$1
     cd $root/$1
     git init
-    git-user-personal
     echo "# $1\n" > README.md
     git add README.md
     git commit -m "first commit"
