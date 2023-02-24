@@ -224,6 +224,7 @@ alias gsr=' git-switch-remote'
 alias gb=' git branch'
 alias -e gbm=' git branch -m $(git_current_branch_name)'
 alias gb-d=' git branch -D'
+alias gb-dr=' git push --delete origin'
 
 alias gps=' git push'
 alias -e gpsu=' git push -u origin $(git_current_branch_name)'
