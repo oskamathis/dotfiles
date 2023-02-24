@@ -428,13 +428,13 @@ typeset -U path PATH
 export PATH="/opt/homebrew/git/bin:$PATH"
 export PATH="/opt/homebrew/opt/mysql-client/bin:$PATH"
 export PATH="/opt/homebrew/opt/curl/bin:$PATH"
-export PATH="$HOME/.anyenv/bin:$PATH"
 export PATH="$PATH:$HOME/.local/bin" # pipx
 
 ########################################
 # 初期化
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-eval "$(anyenv init -)"
+. /opt/homebrew/opt/asdf/libexec/asdf.sh
+. ~/.asdf/plugins/java/set-java-home.zsh
 eval "$(direnv hook zsh)"
 eval "$(register-python-argcomplete pipx)"
 eval "$(fasd --init zsh-hook)"

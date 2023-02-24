@@ -1,10 +1,9 @@
 # dotfiles
 
 ## 基本方針
-- メンテコストがかかるのでスクリプトによる自動化は最低限に留める
-- 同様の理由で Mac OS 以外での環境構築は考えないものとする
-- テキストベースで管理できないGUIアプリの設定等に関しては環境構築のたびにメモを更新していく
-
+* メンテコストがかかるのでスクリプトによる自動化は最低限に留める
+* 同様の理由で Mac OS 以外での環境構築は考えないものとする
+* テキストベースで管理できないGUIアプリの設定等に関しては環境構築のたびにメモを更新していく
 
 ## セットアップ手順
 1. `xcode-select --install` (Gitコマンドを使えるようにする)
@@ -23,27 +22,13 @@
 
 
 ## 手動設定項目
-### anyenv
-初期化
+### asdf
 ```sh
-anyenv install --init
-```
-
-プラグイン
-```sh
-mkdir -p $(anyenv root)/plugins
-git clone https://github.com/znz/anyenv-update.git $(anyenv root)/plugins/anyenv-update
-git clone https://github.com/znz/anyenv-git.git $(anyenv root)/plugins/anyenv-git
-git clone https://github.com/rugamaga/anyenv-tfenv-init.git $(anyenv root)/plugins/anyenv-tfenv-init
-```
-
-**envをインストール
-```sh
-anyenv install jenv
-anyenv install rbenv
-anyenv install pyenv
-anyenv install tfenv
-anyenv install nodenv
+asdf plugin add java
+asdf plugin add alias https://github.com/andrewthauer/asdf-alias.git
+# asdf install java openjdk-17.0.2
+# asdf alias java 17.0.2 openjdk-17.0.2
+asdf plugin add python
 ```
 
 ### vim-plug
