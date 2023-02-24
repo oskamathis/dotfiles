@@ -2,7 +2,6 @@
     email = oskamathis@gmail.com
     name = oskamathis
 [core]
-    excludesfile = ~/.gitignore_global
     quotepath = false
 [log]
     date = iso

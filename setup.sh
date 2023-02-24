@@ -10,7 +10,7 @@ git clone --recursive "$GITHUB_URL" "$DOTPATH"
 cd $DOTPATH || exit 1
 
 echo '> create symbolic links'
-sh $DOTPATH/deploy.sh
+/bin/bash $DOTPATH/deploy.sh
 
 echo '> install Homebrew'
 which brew >/dev/null 2>&1 || /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
