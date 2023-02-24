@@ -155,6 +155,7 @@ alias rlh=' remove-last-history'
 
 alias b='brew'
 alias bl='brew list'
+alias blf='brew list | fzf'
 alias bs=' brew search'
 alias bu='brew upgrade'
 alias bc='brew cleanup'
@@ -223,14 +224,14 @@ alias gsr=' git-switch-remote'
 
 alias gb=' git branch'
 alias -e gbm=' git branch -m $(git_current_branch_name)'
-alias gb-d=' git branch -D'
-alias gb-dr=' git push --delete origin'
+alias gb-d=' git branch -D' # --delete --force
+alias gb-dr=' git push --d origin' # --delete origin
 
 alias gps=' git push'
 alias -e gpsu=' git push -u origin $(git_current_branch_name)'
 alias gps-f=' git push --force-with-lease'
 alias gpl=' git pull'
-alias gplr=' git pull --rebase origin develop'
+alias gplr=' git pull -r origin develop' # --rebase
 alias -e gpl-f=' git reset --hard origin/$(git_current_branch_name)'
 
 alias grb=' git rebase'
@@ -278,7 +279,7 @@ alias tfd='terraform destroy'
 alias tfw='terraform workspace'
 alias tfwl='terraform workspace list'
 alias tfws='terraform workspace select'
-alias tfwf='terraform workspace list | fzf | xargs terraform workspace select'
+alias tfwlf='terraform workspace list | fzf | xargs terraform workspace select'
 alias tff='terraform fmt'
 alias tfv='terraform version'
 alias tfpv='terraform providers'
