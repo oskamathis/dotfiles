@@ -36,7 +36,7 @@ if ! grep -Eq '^auth\s.*\spam_tid\.so$' /etc/pam.d/sudo; then
     )
 fi
 
-if ! grep -Eq '^auth\s.*\spam_reattach\.so$' /etc/pam.d/sudo; then
+if { ! grep -Eq '^auth\s.*\/opt/homebrew/lib/pam/pam_reattach\.so$' /etc/pam.d/sudo } && [ -f /opt/homebrew/lib/pam/pam_reattach.so ]; then
     ( set -e; set -o pipefail
         # pam_tid.so の手前に pam_reattach.so を追加
         pam_sudo=$(awk 'fixed||!/^auth .* pam_tid.so$/{print} !fixed&&/^auth/{print "auth       optional       /opt/homebrew/lib/pam/pam_reattach.so";print;fixed=1}' /etc/pam.d/sudo)
