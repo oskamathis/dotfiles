@@ -430,9 +430,9 @@ export PATH="$PATH:$HOME/.local/bin" # pipx
 
 ########################################
 # 初期化
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-. /opt/homebrew/opt/asdf/libexec/asdf.sh
-. ~/.asdf/plugins/java/set-java-home.zsh
+if [ -f ~/.fzf.zsh ]; then source ~/.fzf.zsh; else /opt/homebrew/opt/fzf/install; fi
+source /opt/homebrew/opt/asdf/libexec/asdf.sh
+source ~/.asdf/plugins/java/set-java-home.zsh
 eval "$(direnv hook zsh)"
 eval "$(register-python-argcomplete pipx)"
 eval "$(fasd --init zsh-hook)"
