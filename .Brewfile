@@ -85,7 +85,7 @@ cask "syntax-highlight"
 cask "google-japanese-ime"
 cask "microsoft-edge"
 tap "homebrew/cask-versions"; cask "microsoft-edge-beta"
-cask "pushplaylabs-sidekick"
+cask "stack-stack"
 cask "alfred"
 cask "bettertouchtool"
 cask "karabiner-elements"
@@ -115,3 +115,4 @@ mas "Slack", id: 803453959
 cask "spotify"
 cask "discord"
 cask "android-platform-tools"
+
