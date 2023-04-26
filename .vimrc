@@ -93,6 +93,10 @@ set autoindent
 set smartindent
 "タブ文字の代わりに空白文字を挿入する
 set expandtab
+let _curfile=expand("%:r")
+if _curfile == 'Makefile'
+  set noexpandtab
+endif
 "行頭の余白内で Tab を打ち込むと、'shiftwidth' の数だけインデントする。
 set smarttab
 "タブ文字が対応する空白の数
