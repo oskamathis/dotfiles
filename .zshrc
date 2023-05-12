@@ -250,8 +250,16 @@ alias gms=' git merge --skip'
 
 alias gl=' ghq-look'
 
-alias dc='docker-compose'
-alias dce='docker-compose exec'
+alias dpi='docker image prune'
+alias dpc='docker container prune'
+alias db='docker build -t'
+alias di='docker inspect'
+alias dps='docker push'
+alias dpl='docker pull'
+alias dc='docker compose'
+alias dce='docker compose exec'
+alias dcu='docker compose up -d'
+alias dcd='docker compose down'
 
 alias vrc='vim ~/.zshrc'
 alias vh='vim $HISTFILE'
