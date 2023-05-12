@@ -11,6 +11,7 @@ Plug 'doums/darcula'
 Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'ConradIrwin/vim-bracketed-paste'
+Plug 'tomtom/tcomment_vim' "`Ctrl`+`--`でコメントアウト
 call plug#end()
 
 "シンタックスハイライト設定
