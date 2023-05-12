@@ -71,14 +71,11 @@ zstyle ':zle:*' word-style unspecified
 # 補完機能を有効にする
 FPATH=/opt/homebrew/share/zsh/site-functions:$FPATH
 
-autoload -U bashcompinit
-bashcompinit
-
-autoload -Uz compinit
-compinit -C
-zstyle ':completion:*:default' menu select=2
+autoload -U +X bashcompinit && bashcompinit
+autoload -Uz compinit && compinit -C
 
 # 補完関数の表示を強化する
+zstyle ':completion:*:default' menu select=2
 zstyle ':completion:*' verbose yes
 zstyle ':completion:*' completer _expand _complete _match _prefix _list
 zstyle ':completion:*:messages' format '%F{YELLOW}%d'$DEFAULT
@@ -101,6 +98,12 @@ zstyle ':completion:*:sudo:*' command-path /usr/local/sbin /usr/local/bin \
                                            /usr/sbin /usr/bin /sbin /bin /usr/X11R6/bin
 # ps コマンドのプロセス名補完
 zstyle ':completion:*:processes' command 'ps x -o pid,s,args'
+
+########################################
+# Terraformの補完を有効化
+if type terraform &> /dev/null; then
+    complete -o nospace -C terraform terraform
+fi
 
 ########################################
 # オプション
