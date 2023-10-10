@@ -103,7 +103,7 @@ cask "cyberduck"
 cask "appcleaner"
 cask "keyboardcleantool"
 cask "keycastr"
-cask "kindle"
+mas "Kindle", id: 302584613
 
 # 業務用
 cask "viscosity"
