@@ -89,7 +89,6 @@ cask "stack-stack"
 cask "alfred"
 cask "bettertouchtool"
 cask "karabiner-elements"
-cask "showyedge"
 cask "fuwari"
 cask "bartender"
 mas "Spark", id: 1176895641
