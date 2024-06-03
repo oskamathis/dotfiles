@@ -9,6 +9,9 @@
     prune = true
 [pull]
     rebase = false
+[rebase]
+    autostash = true
+    abbreviateCommands = true
 [pager]
     log = diff-highlight | less
     show = diff-highlight | less
