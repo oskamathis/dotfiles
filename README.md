@@ -45,9 +45,3 @@ mackup restore
 
 ### VSCode
 コマンドパレットで `Shell Command: Install 'code' command in PATH` を実行
-
-### pipx
-pipxは一括でインストールする方法が無いので手動でインストールする
-```sh
-pipx install datadog
-```

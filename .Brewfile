@@ -50,9 +50,6 @@ cask "session-manager-plugin"
 # Terraform
 tap "hashicorp/tap"; brew "terraform-ls"
 
-# Dogshellに必要
-brew "pipx"
-
 # Alfred Workflowsに必要
 brew "translate-shell"
 

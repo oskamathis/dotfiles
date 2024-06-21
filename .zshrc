@@ -450,7 +450,6 @@ if [ -f ~/.fzf.zsh ]; then source ~/.fzf.zsh; else /opt/homebrew/opt/fzf/install
 source /opt/homebrew/opt/asdf/libexec/asdf.sh
 source ~/.asdf/plugins/java/set-java-home.zsh
 eval "$(direnv hook zsh)"
-eval "$(register-python-argcomplete pipx)"
 eval "$(fasd --init zsh-hook)"
 
 ########################################
