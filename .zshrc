@@ -469,6 +469,7 @@ export TF_CLI_ARGS_refresh="-parallelism=30"
 export TF_CLI_ARGS_plan="-parallelism=30"
 export TF_CLI_ARGS_apply="-parallelism=30"
 export TF_CLI_ARGS_destroy="-parallelism=30"
+export GPG_TTY=$TTY
 
 # if (which zprof > /dev/null) ;then
 #     zprof

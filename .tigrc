@@ -20,11 +20,9 @@ set line-graphics = utf-8
 # 検索時に大文字小文字を無視する (default: false)
 set ignore-case = true
 
-# 空白のみの差分を無視する
-#set ignore-space = all
-
-# マージ diff を表示する
-set diff-options = -m --first-parent
+# 表示設定
+set log-options = --show-signature
+set diff-options = -m --first-parent --show-signature
 
 # マウスを有効にする
 set mouse = true

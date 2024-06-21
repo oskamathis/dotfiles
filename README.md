@@ -19,6 +19,7 @@
 6. HomebrewでインストールしたGitのdiff-highlightを使えるようにする
 7. ログインシェルを変更
 8. sudoコマンドの認証にTouch IDを使えるようにする
+9. GnuPGのpinentryを変更する
 
 
 ## 手動設定項目

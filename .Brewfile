@@ -16,6 +16,8 @@ brew "git"
 brew "tig"
 brew "ghq"
 brew "vim"
+brew "gpg"
+brew "pinentry-mac"
 
 # 環境切り替え系
 brew "asdf"

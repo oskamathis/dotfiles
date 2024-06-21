@@ -1,6 +1,7 @@
 [user]
     email = oskamathis@gmail.com
     name = oskamathis
+    signingKey = 904C171C5149D68B
 [core]
     quotepath = false
 [log]
@@ -17,6 +18,8 @@
     show = diff-highlight | less
     diff = diff-highlight | less
     branch = cat
+[commit]
+    gpgsign = true
 
 [alias]
     get = !ghq get -p

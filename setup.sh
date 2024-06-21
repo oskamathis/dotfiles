@@ -44,6 +44,10 @@ if { ! grep -Eq '^auth\s.*\/opt/homebrew/lib/pam/pam_reattach\.so$' /etc/pam.d/s
     )
 fi
 
+echo '> setup pinentry'
+echo 'pinentry-program /opt/homebrew/bin/pinentry-mac' > ~/.gnupg/gpg-agent.conf
+gpgconf --kill gpg-agent
+
 cat << END
 
 **************************************************
