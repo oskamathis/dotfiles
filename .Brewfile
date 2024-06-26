@@ -82,15 +82,12 @@ cask "syntax-highlight"
 
 # GUIの作業環境
 cask "google-japanese-ime"
-cask "microsoft-edge"
-tap "homebrew/cask-versions"; cask "microsoft-edge-beta"
-cask "stack-stack"
+cask "arc"
 cask "alfred"
 cask "bettertouchtool"
 cask "karabiner-elements"
 cask "fuwari"
 cask "bartender"
-mas "Spark", id: 1176895641
 cask "iterm2"
 cask "visual-studio-code"
 cask "intellij-idea"
