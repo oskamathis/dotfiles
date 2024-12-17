@@ -30,6 +30,8 @@ zinit ice depth=1; zinit light romkatv/powerlevel10k
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 ########################################
+BREW_PREFIX=${$(type brew > /dev/null 2>&1 && brew --prefix):-"/opt/homebrew"}
+
 # 色を使用出来るようにする
 autoload -Uz colors
 colors
@@ -69,7 +71,7 @@ zstyle ':zle:*' word-style unspecified
 ########################################
 # 補完
 # 補完機能を有効にする
-FPATH=/opt/homebrew/share/zsh/site-functions:$FPATH
+FPATH=$BREW_PREFIX/share/zsh/site-functions:$FPATH
 
 autoload -U +X bashcompinit && bashcompinit
 autoload -Uz compinit && compinit -C
@@ -439,15 +441,15 @@ export LESS_TERMCAP_us=$'\E[01;32m'      # Begins underline.
 ########################################
 # パス
 typeset -U path PATH
-export PATH="/opt/homebrew/git/bin:$PATH"
-export PATH="/opt/homebrew/opt/mysql-client/bin:$PATH"
-export PATH="/opt/homebrew/opt/curl/bin:$PATH"
+export PATH="$BREW_PREFIX/git/bin:$PATH"
+export PATH="$BREW_PREFIX/opt/mysql-client/bin:$PATH"
+export PATH="$BREW_PREFIX/opt/curl/bin:$PATH"
 export PATH="$PATH:$HOME/.local/bin" # pipx
 
 ########################################
 # 初期化
-if [ -f ~/.fzf.zsh ]; then source ~/.fzf.zsh; else /opt/homebrew/opt/fzf/install; fi
-source /opt/homebrew/opt/asdf/libexec/asdf.sh
+if [ -f ~/.fzf.zsh ]; then source ~/.fzf.zsh; else $BREW_PREFIX/opt/fzf/install; fi
+source $BREW_PREFIX/opt/asdf/libexec/asdf.sh
 source ~/.asdf/plugins/java/set-java-home.zsh
 eval "$(direnv hook zsh)"
 eval "$(fasd --init zsh-hook)"
