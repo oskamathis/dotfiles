@@ -304,6 +304,13 @@ alias zt='time ( zsh -i -c exit )'
 alias al='abbrev-alias'
 alias alf='abbrev-alias | fzf'
 
+alias cb='./gradlew clean build'
+alias ct='./gradlew clean test'
+alias cbx='./gradlew clean build -x test'
+alias kf='./gradlew ktlintFormat'
+alias br='./gradlew bootRun'
+alias bj='./gradlew bootJar'
+
 # sudo の後のコマンドでエイリアスを有効にする
 \alias sudo='sudo '
 
