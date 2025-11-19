@@ -39,6 +39,7 @@ brew "bat"
 brew "tldr"
 brew "ripgrep"
 brew "git-delta"
+brew "httpie"
 brew "curl"
 tap "beeftornado/rmtree"; brew "brew-rmtree"
 
@@ -105,6 +106,7 @@ cask "viscosity"
 cask "krisp"
 cask "zoom"
 mas "Slack", id: 803453959
+mas "Bitwarden", id: 1352778147
 
 # プライベート
 cask "spotify"
