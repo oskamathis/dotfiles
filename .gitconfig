@@ -18,6 +18,8 @@
     show = diff-highlight | less
     diff = diff-highlight | less
     branch = cat
+[tag]
+    sort = -v:refname
 [commit]
     gpgsign = true
 

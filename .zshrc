@@ -26,6 +26,7 @@ zinit light-mode for \
     junegunn/fzf \
     momo-lab/zsh-abbrev-alias \
     paulirish/git-open \
+    sunlei/zsh-ssh \
 
 zinit ice depth=1; zinit light romkatv/powerlevel10k
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
