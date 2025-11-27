@@ -75,6 +75,8 @@ zstyle ':zle:*' word-style unspecified
 # 補完
 # 補完機能を有効にする
 FPATH=$BREW_PREFIX/share/zsh/site-functions:$FPATH
+FPATH=~/.docker/completions:$FPATH
+typeset -U FPATH
 
 autoload -U +X bashcompinit && bashcompinit
 autoload -Uz compinit && compinit -C
@@ -460,6 +462,7 @@ export PATH="$PATH:$HOME/.local/bin" # pipx
 # 初期化
 if [ -f ~/.fzf.zsh ]; then source ~/.fzf.zsh; else $BREW_PREFIX/opt/fzf/install; fi
 eval "$(mise activate zsh)"
+export PATH="$HOME/.local/share/mise/shims:$PATH"
 eval "$(direnv hook zsh)"
 eval "$(fasder --init zsh-hook)"
 
