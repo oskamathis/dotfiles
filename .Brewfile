@@ -1,15 +1,9 @@
-# Homebrew 外部コマンド系
-tap "homebrew/bundle"
-tap "homebrew/cask"
-tap "homebrew/core"
-tap "homebrew/services"
-
 # シェル自体の作業環境
 brew "zsh"
-brew "fasd"
+tap "wyne/tap"; brew "wyne/tap/fasder"
 brew "fzf"
 brew "tmux"
-tap "fabianishere/personal"; brew "pam_reattach"
+brew "pam-reattach"
 
 # Gitの作業環境
 brew "git"
@@ -20,7 +14,7 @@ brew "gpg"
 brew "pinentry-mac"
 
 # 環境切り替え系
-brew "asdf"
+brew "mise"
 brew "direnv"
 
 # コマンド類
@@ -34,22 +28,22 @@ brew "gron"
 brew "tree"
 brew "ctop"
 brew "gh"
-brew "exa"
+brew "eza"
 brew "bat"
 brew "tldr"
 brew "ripgrep"
 brew "git-delta"
 brew "httpie"
 brew "curl"
-tap "beeftornado/rmtree"; brew "brew-rmtree"
+tap "beeftornado/rmtree"; brew "beeftornado/rmtree/brew-rmtree"
 
 # AWS
 brew "awscli"
-tap "aws/tap"; brew "aws-sam-cli"
+tap "aws/tap"; brew "aws/tap/aws-sam-cli"
 cask "session-manager-plugin"
 
 # Terraform
-tap "hashicorp/tap"; brew "terraform-ls"
+tap "hashicorp/tap"; brew "hashicorp/tap/terraform-ls"
 
 # Alfred Workflowsに必要
 brew "translate-shell"
@@ -59,7 +53,7 @@ brew "gradle-completion"
 
 # DBクライアント
 brew "mysql-client"
-tap "aoki/redis-cli"; brew "redis-cli"
+tap "oskamathis/redis-cli"; brew "oskamathis/redis-cli/redis-cli"
 brew "mycli"
 brew "iredis"
 
@@ -73,7 +67,6 @@ brew "mackup"
 cask "dropbox"
 
 # フォント
-tap "homebrew/cask-fonts"
 cask "font-hackgen"
 cask "font-hackgen-nerd"
 
@@ -83,7 +76,7 @@ cask "syntax-highlight"
 
 # GUIの作業環境
 cask "google-japanese-ime"
-cask "arc"
+cask "zen"
 cask "alfred"
 cask "bettertouchtool"
 cask "karabiner-elements"
@@ -92,7 +85,7 @@ cask "bartender"
 cask "iterm2"
 cask "visual-studio-code"
 cask "intellij-idea"
-cask "orbstack"
+cask "docker-desktop"
 cask "postman"
 cask "tableplus"
 cask "cyberduck"
@@ -100,6 +93,7 @@ cask "appcleaner"
 cask "keyboardcleantool"
 cask "keycastr"
 mas "Kindle", id: 302584613
+cask "yellowdot"
 
 # 業務用
 cask "viscosity"
@@ -110,6 +104,7 @@ mas "Bitwarden", id: 1352778147
 
 # プライベート
 cask "spotify"
+cask "notunes"
 cask "discord"
 cask "android-platform-tools"
 

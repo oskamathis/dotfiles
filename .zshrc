@@ -29,6 +29,7 @@ zinit light-mode for \
 
 zinit ice depth=1; zinit light romkatv/powerlevel10k
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+[[ ! -f ~/.p10k.mise.zsh ]] || source ~/.p10k.mise.zsh
 
 ########################################
 BREW_PREFIX=${$(type brew > /dev/null 2>&1 && brew --prefix):-"/opt/homebrew"}
@@ -169,13 +170,13 @@ alias buc='brew upgrade && brew cleanup'
 alias bi='brew install'
 alias bic='brew install --cask'
 
-\alias exa=' exa -Fh --group-directories-first --git --icons --time-style=long-iso'
-alias l1='exa -1'
-alias la='exa -1a'
-alias ll='exa -l'
-alias lla='exa -la'
-alias lf='exa -a | fzf'
-alias llf='exa -la | fzf'
+\alias eza=' eza --classify=auto --group-directories-first --git --icons=auto --time-style=long-iso'
+alias l1='eza -1'
+alias la='eza -1a'
+alias ll='eza -l'
+alias lla='eza -la'
+alias lf='eza -a | fzf'
+alias llf='eza -la | fzf'
 
 alias man='tldr'
 #alias sed='gsed'
@@ -333,27 +334,27 @@ function vless() {
 }
 
 function j() {
-    local dir=$(fasd -Rdl $@ \
-                | fzf --preview "exa -1F --group-directories-first --color=always {}" \
+    local dir=$(fasder -Rdl $@ \
+                | fzf --preview "eza -1F --group-directories-first --color=always {}" \
                       --exit-0 --no-unicode --preview-window=right:30%)
     [ $dir ] && cd $dir
 }
 
 function v() {
-    local file=$(fasd -Rfl $@ \
+    local file=$(fasder -Rfl $@ \
                  | fzf --preview "(bat --number --color always {}) 2> /dev/null | head -100" \
                        --exit-0 --height 100% --preview-window=down:50%)
     [ $file ] && vim $file
 }
 
 function c() {
-    local target=$(fasd -Rl $@ | fzf --exit-0)
+    local target=$(fasder -Rl $@ | fzf --exit-0)
     [ $target ] && code $target
 }
 
 function ghq-look() {
     local src=$(ghq list \
-                | fzf --preview "exa -1F --group-directories-first --color=always $(ghq root)/{}" \
+                | fzf --preview "eza -1F --group-directories-first --color=always $(ghq root)/{}" \
                       --exit-0 --preview-window=right:30%)
     if [ -n "$src" ]; then
         cd $(ghq root)/$src
@@ -457,10 +458,9 @@ export PATH="$PATH:$HOME/.local/bin" # pipx
 ########################################
 # 初期化
 if [ -f ~/.fzf.zsh ]; then source ~/.fzf.zsh; else $BREW_PREFIX/opt/fzf/install; fi
-source $BREW_PREFIX/opt/asdf/libexec/asdf.sh
-source ~/.asdf/plugins/java/set-java-home.zsh
+eval "$(mise activate zsh)"
 eval "$(direnv hook zsh)"
-eval "$(fasd --init zsh-hook)"
+eval "$(fasder --init zsh-hook)"
 
 ########################################
 # 環境変数
