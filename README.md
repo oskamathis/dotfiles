@@ -23,15 +23,6 @@
 
 
 ## 手動設定項目
-### asdf
-```sh
-asdf plugin add java
-asdf plugin add alias https://github.com/andrewthauer/asdf-alias.git
-# asdf install java openjdk-17.0.2
-# asdf alias java 17.0.2 openjdk-17.0.2
-asdf plugin add python
-```
-
 ### vim-plug
 ```sh
 vim -c PlugInstall -c q -c q
