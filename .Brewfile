@@ -93,7 +93,6 @@ cask "appcleaner"
 cask "keyboardcleantool"
 cask "keycastr"
 mas "Kindle", id: 302584613
-cask "yellowdot"
 
 # 業務用
 cask "viscosity"
