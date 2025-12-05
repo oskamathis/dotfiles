@@ -35,6 +35,7 @@ brew "ripgrep"
 brew "git-delta"
 brew "httpie"
 brew "curl"
+brew "nkf"
 tap "beeftornado/rmtree"; brew "beeftornado/rmtree/brew-rmtree"
 
 # AWS
@@ -77,6 +78,7 @@ cask "syntax-highlight"
 # GUIの作業環境
 cask "google-japanese-ime"
 cask "zen"
+cask "microsoft-edge"
 cask "alfred"
 cask "bettertouchtool"
 cask "karabiner-elements"
@@ -97,6 +99,7 @@ mas "Kindle", id: 302584613
 # 業務用
 cask "viscosity"
 cask "krisp"
+cask "finicky"
 cask "zoom"
 mas "Slack", id: 803453959
 mas "Bitwarden", id: 1352778147
