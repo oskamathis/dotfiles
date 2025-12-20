@@ -1,18 +1,31 @@
-# main view の左端にコミットIDを表示する
+# main view の表示設定
 set main-view = id date author:email-user commit-title:graph=yes,refs=yes
+set main-view-date-display = custom
+set main-view-date-format = "%Y-%m-%d"
+set main-view-date-local = true
 
-# main view の日時表示設定
-set main-view-date = relative-compact
+# refs view の表示設定
+set refs-view-date-display = custom
+set refs-view-date-format = "%Y-%m-%d"
+set refs-view-date-local = true
 
-# blame view の行数表示のintervalを1に
-set blame-view  = date:default author:email-user id:yes,color line-number:no,interval=1 text
+# tree view の表示設定
+set tree-view-date-display = custom
+set tree-view-date-format = "%Y-%m-%d"
+set tree-view-date-local = true
 
-# Pager 系の行数表示のintervalを1に (default: line-number:no,interval=5)
-set pager-view  = line-number:no,interval=1 text
-set stage-view  = line-number:no,interval=1 text
-set log-view    = line-number:no,interval=1 text
-set blob-view   = line-number:no,interval=1 text
-set diff-view   = line-number:no,interval=1 text:yes,commit-title-overflow=no
+# blame view の表示設定
+set blame-view = date author:email-user id:yes,color line-number:yes,interval=1 text
+set blame-view-date-display = custom
+set blame-view-date-format = "%Y-%m-%d"
+set blame-view-date-local = true
+
+# Pager 系の行数表示
+set pager-view  = line-number:yes,interval=1 text
+set stage-view  = line-number:yes,interval=1 text
+set log-view    = line-number:yes,interval=1 text
+set blob-view   = line-number:yes,interval=1 text
+set diff-view   = line-number:yes,interval=1 text:yes,commit-title-overflow=no
 
 # utf-8 文字で画面描画する (~でトグル)
 set line-graphics = utf-8
@@ -40,8 +53,11 @@ color  diff-header       default red
 color  diff-chunk        black   white
 
 ########################################
-# vimdiffで確認をする
-bind generic D      !git difftool
+# diffnav を呼び出す
+bind main    D       >git show -m %(commit)
+bind diff    D       >git show -m %(commit)
+bind stage   D       >git diff HEAD
+bind blame   D       >git show -m %(commit)
 
 ########################################
 # 最上/最下部移動
