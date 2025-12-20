@@ -6,31 +6,18 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 fi
 
 # zinit
-if [[ ! -f $HOME/.zinit/bin/zinit.zsh ]]; then
-    print -P "%F{33}▓▒░ %F{220}Installing DHARMA Initiative Plugin Manager (zdharma-continuum/zinit)…%f"
-    command mkdir -p "$HOME/.zinit" && command chmod g-rwX "$HOME/.zinit"
-    command git clone https://github.com/zdharma-continuum/zinit "$HOME/.zinit/bin" && \
+if [[ ! -f $HOME/.antidote/antidote.zsh ]]; then
+    print -P "%F{33}▓▒░ %F{220}Installing Plugin Manager (mattmc3/antidote)…%f"
+    git clone --depth=1 https://github.com/mattmc3/antidote.git ${ZDOTDIR:-$HOME}/.antidote && \
         print -P "%F{33}▓▒░ %F{34}Installation successful.%f%b" || \
         print -P "%F{160}▓▒░ The clone has failed.%f%b"
 fi
 
-source "$HOME/.zinit/bin/zinit.zsh"
+source $HOME/.antidote/antidote.zsh
+antidote load ${ZDOTDIR:-$HOME}/.zsh_plugins.txt
 
-zinit light-mode for \
-    zdharma-continuum/z-a-patch-dl \
-    zsh-users/zsh-autosuggestions \
-    zsh-users/zsh-completions \
-    zsh-users/zsh-syntax-highlighting \
-    zsh-users/zsh-history-substring-search \
-    junegunn/fzf-bin \
-    junegunn/fzf \
-    momo-lab/zsh-abbrev-alias \
-    paulirish/git-open \
-    sunlei/zsh-ssh \
-
-zinit ice depth=1; zinit light romkatv/powerlevel10k
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-[[ ! -f ~/.p10k.mise.zsh ]] || source ~/.p10k.mise.zsh
+[[ ! -f $HOME/.p10k.zsh ]] || source $HOME/.p10k.zsh
+[[ ! -f $HOME/.p10k.mise.zsh ]] || source $HOME/.p10k.mise.zsh
 
 ########################################
 BREW_PREFIX=${$(type brew > /dev/null 2>&1 && brew --prefix):-"/opt/homebrew"}
@@ -43,10 +30,8 @@ colors
 bindkey -e
 
 # zsh-history-substring-search
-if zinit loaded zsh-history-substring-search >/dev/null 2>&1; then
-    bindkey '^[[A' history-substring-search-up
-    bindkey '^[[B' history-substring-search-down
-fi
+bindkey '^[[A' history-substring-search-up
+bindkey '^[[B' history-substring-search-down
 
 # 履歴の設定
 HISTFILE=~/.zsh_history
@@ -407,6 +392,15 @@ function git-stash-clear() {
     fi
 }
 
+function git-prune-tags() {
+    git tag -l | xargs git tag -d
+    git fetch origin --tags
+}
+
+function git-root() {
+    cd "$(git rev-parse --show-toplevel)"
+}
+
 function git_current_branch_name() {
     git symbolic-ref --short HEAD
 }
@@ -460,7 +454,7 @@ export PATH="$PATH:$HOME/.local/bin" # pipx
 
 ########################################
 # 初期化
-if [ -f ~/.fzf.zsh ]; then source ~/.fzf.zsh; else $BREW_PREFIX/opt/fzf/install; fi
+source <(fzf --zsh)
 eval "$(mise activate zsh)"
 export PATH="$HOME/.local/share/mise/shims:$PATH"
 eval "$(direnv hook zsh)"

@@ -5,6 +5,8 @@ set -u
 DOTPATH=$(cd $(dirname $0); pwd)
 
 while read -r f; do
+    [ "$f" = "." ] && continue
+    [ "$f" = ".." ] && continue
     [ "$f" = '.git' ] && continue
     [ "$f" = '.gitignore' ] && continue
     [ "$f" = '.DS_Store' ] && continue

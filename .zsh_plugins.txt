@@ -1,0 +1,15 @@
+# prompt
+romkatv/powerlevel10k
+
+# suggest
+zsh-users/zsh-syntax-highlighting
+zsh-users/zsh-history-substring-search
+zsh-users/zsh-autosuggestions
+zsh-users/zsh-completions
+sunlei/zsh-ssh
+
+# alias
+momo-lab/zsh-abbrev-alias
+
+# sub command
+paulirish/git-open
