@@ -63,9 +63,6 @@ FPATH=$BREW_PREFIX/share/zsh/site-functions:$FPATH
 FPATH=~/.docker/completions:$FPATH
 typeset -U FPATH
 
-autoload -U +X bashcompinit && bashcompinit
-autoload -Uz compinit && compinit -C
-
 # 補完関数の表示を強化する
 zstyle ':completion:*:default' menu select=2
 zstyle ':completion:*' verbose yes
